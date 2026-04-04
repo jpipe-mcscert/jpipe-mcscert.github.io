@@ -12,7 +12,7 @@ main:
   - title: "Publications"
     url: /publications/
   - title: "Github"
-    url: https://github.com/ace-design/jpipe
+    url: https://github.com/jpipe-mcscert
     target: _blank
 
 news:
@@ -29,6 +29,8 @@ news:
 
   - title: Archives
     children:
+      - title: "2026"
+        url: /news/#2026
       - title: "2025"
         url: /news/#2025
       - title: "2024"
@@ -41,6 +43,24 @@ news:
         url: /news/#2021
       - title: "2020"
         url: /news/#2020
+
+
+documentation:
+  - title: Tools
+    children:
+      - title: "Compiler"
+        url: /docs/compiler/
+      - title: "Runner"
+        url: /docs/runner/
+      - title: "IDE"
+        url: /docs/ide/
+
+  - title: Examples
+    children:
+      - title: "Toy Examples"
+        url: /docs/toys/
+      - title: "Bellairs CSE"
+        url: /docs/bellairs-cse/
 
 
 tutorials:

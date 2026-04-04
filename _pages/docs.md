@@ -5,6 +5,8 @@ permalink: /docs/
 collection: docs
 entries_layout: grid
 classes: wide
+sidebar:
+  nav: "documentation"
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
@@ -13,4 +15,3 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
 
-Soon...

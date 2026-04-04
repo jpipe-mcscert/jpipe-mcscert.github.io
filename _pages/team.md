@@ -16,16 +16,23 @@ core_team:
     url: "https://mosser.github.io"
     btn_label: "Read More"
     btn_class: "btn--primary btn--small"
+  - image_path: /assets/images/people/kalvin.jpg
+    title: "Kalvin Thuan-Phong Khuu"
+    excerpt: "<p class=\"text-justify\">Kalvin is currently a PhD student in Software Engineering at McMaster University. He is working on developing a guidance system to help software developers assess the level of fairness in their application. His research interests mainly focus on human-centered AI design, software engineering and natural language processing. With hands-on experience at organizations like Desjardins Group and the Quebec Ministry of Public Security, he has contributed to software modernization, UI/UX design and machine learning applications.</p>"
+    url: "https://kalvinkhuu.github.io/"
+    btn_label: "Read More"
+    btn_class: "btn--primary btn--small"
+alumni:
+  - image_path: /assets/images/people/andrew.jpg
+    title: "Andrew Bovbel"
+    excerpt: "<p class=\"text-justify\">Andrew is a current final year Software Engineering student interested in all things iOS, Web, and Machine Learning. He has experience at companies like Intuit and Zafin for product development facing roles. He enjoys walking with his Small Munsterlanders and playing guitar.</p>"
+    url: "https://www.linkedin.com/in/andrewbovbel/"
+    btn_label: "Read More"
+    btn_class: "btn--primary btn--small"
   - image_path: /assets/images/people/nirmal.png
     title: "Nirmal Chaudhari"
     excerpt: "<p class=\"text-justify\">I’m a fourth‑year Software Engineering student at McMaster University with a passion for building innovative software solutions. I enjoy working on unique projects that involve solving complex problems and learning new technologies. I am driven to use software as a tool to make a meaningful difference in the lives of others.</p>"
     url: "https://www.linkedin.com/in/nirmal2003/"
-    btn_label: "Read More"
-    btn_class: "btn--primary btn--small"
-  - image_path: /assets/images/people/kalvin.jpg
-    title: "Kalvin Khuu"
-    excerpt: "<p class=\"text-justify\">Kalvin is currently a M. Eng student in Computing and Software at McMaster University. He is working on developing a guidance system to help software developers assess the level of fairness in their application. His research interests mainly focus on human-centered AI design, software engineering and natural language processing. With hands-on experience at organizations like Desjardins Group and the Quebec Ministry of Public Security, he has contributed to software modernization, UI/UX design and machine learning applications.</p>"
-    url: "https://www.linkedin.com/in/kalvin-khuu/"
     btn_label: "Read More"
     btn_class: "btn--primary btn--small"
   - image_path: /assets/images/people/darshan.jpg
@@ -40,7 +47,6 @@ core_team:
     url: "https://www.linkedin.com/in/lacroix-baptiste/"
     btn_label: "Read More"
     btn_class: "btn--primary btn--small"
-alumni:
   - image_path: /assets/images/people/jason.jpg
     title: "Zhexuan (Jason) Lyu"
     excerpt: "<p class=\"text-justify\">Jason is currently an M.Eng. student in Computing and Software at McMaster University, supervised by Prof. Sébastien Mosser. He interned at Arctic Wolf (Summer & Fall 2024), EMQ Technologies (Summer 2023), and Microsoft Research Asia (2021–2022). He is also an Open-source Software Developer on GitHub with interests in various domains including but not limited to Golang/Python programming, cloud native, networking, and DevOps. His M.Eng. project focused on Kubernetes and justification models, where he developed new interests in safety and modeling.</p>"

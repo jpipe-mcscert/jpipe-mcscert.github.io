@@ -38,7 +38,11 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-redirect-from
 
+whitelist:
+  - jekyll-redirect-from
+  
 include: 
   - _pages
   - _docs
