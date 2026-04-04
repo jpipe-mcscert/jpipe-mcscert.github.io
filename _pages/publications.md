@@ -14,12 +14,11 @@ header:
   show_overlay_excerpt: true
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
-### Journal Articles
-
-- [_How do microservices evolve? An empirical analysis of changes in open-source microservice repositories_](http://hdl.handle.net/11375/28661). Wesley K.G. Assunção, Jacob Krüger, Sébastien Mosser, and Sofiane Selaoui. Journal of Systems and Software (JSS), 204, pages 111788, 2023
 
 ### Conference Papers
 
+- _Model Cards for Responsible AI: Stop Carding, Start Modelling!_ Kalvin Thuan-Phong Khuu, Nicolas Lacroix, Baptiste Lacroix, Richard Paige, Mireille Blay-Fornarino, and Sébastien Mosser. In 2026 IEEE/ACM 48th International Conference on Software Engineering (ICSE-NIER '26) 2026
+- [_Incorporating FATES Principles in Continuous Development of ML-Integrated Systems: Importance of Requirements_](https://hal.science/hal-05393692v1). Jean-Michel Bruel, Tristan Gouaichault, Olivier Teste, Mireille Blay-Fornarino, Nicolas Lacroix, Frédéric Precioso, and Sébastien Mosser. In 1st International Workshop on Requirements Engineering for Accountable and Conscious Human-centered AI (REACH'AI), co-located with IEEE RE 2025. Valencia, Spain. September 2025 2025.
 - 🇫🇷 [_Prise en compte des propriétés FATES en MLOps: perspectives et ambitions_](http://hdl.handle.net/11375/31417). Mireille Blay-Fornarino, Jean-Michel Bruel, Sébastien Mosser, Frédéric Precioso. Explain'AI (CNRS) 2025.
 - [_Yes, Configuring is Good, But Have You Ever Tried Justifying?_](http://hdl.handle.net/11375/28858). Sébastien Mosser, Corinne Pulgar, Mireille Blay-Fornarino, Deesha Patel, Aaron Loh, Jean-Michel Bruel. CONFLANG 2023 (abstract). 
 
@@ -31,9 +30,9 @@ header:
 
 - [_Lever, a framework for DSL editor support_](http://hdl.handle.net/11375/30989). Alexandre Lachance. MASc thesis, 2024.
 
-### Reports
+### Reports (M.Eng. projects)
 
-- _A study on justification for High-quality Kunernetes systems_. Zhexuan (Jason) Lyu. MEng report, 2025.
+- [_A study on justification for High-quality Kunernetes systems_](http://hdl.handle.net/11375/31509). Zhexuan (Jason) Lyu. MEng report, 2025.
 - [_A study of justification on Jupyter Notebook quality and fairness_](http://hdl.handle.net/11375/29641). Kai Sun. MEng report, 2024.
 - [_A study on justifying platform-independent CI/CD pipelines_](http://hdl.handle.net/11375/29326). Deesha Patel. MEng report, 2023.
 
