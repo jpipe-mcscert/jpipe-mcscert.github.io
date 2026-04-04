@@ -1,5 +1,5 @@
 # Loading minimal mistakes theme
-remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+remote_theme: "mmistakes/minimal-mistakes@4.28.0"
 minimal_mistakes_skin: "default"
 
 # Global configuration
@@ -20,7 +20,7 @@ baseurl: ""
 url: "https://www.jpipe.org" 
 
 locale: "en"
-repository: "ace-design/jpipe"
+repository: "jpipe-mcscert"
 
 logo: "/assets/images/logo.png"
 
@@ -46,6 +46,7 @@ whitelist:
 include: 
   - _pages
   - _docs
+  - _tutorials
 
 exclude:
   - README

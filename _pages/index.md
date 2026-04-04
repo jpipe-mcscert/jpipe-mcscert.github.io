@@ -1,6 +1,6 @@
 ---
 layout: splash
-tagline: "Justification made easier!<br/><small>Latest release: 0.2.8</small>"
+tagline: "Justification made easier!"
 permalink: /
 header:
   og_image: /assets/images/logo.png
@@ -13,7 +13,7 @@ header:
     - label: "<i class=\"fa-solid fa-download\"></i>&nbsp;Install"
       url: "/tutorials/install"
     - label: "<i class=\"fa-brands fa-github\"></i>&nbsp;Github"
-      url: "https://github.com/ace-design/jpipe"
+      url: "https://github.com/jpipe-mcscert"
 
 intro:
   - image_path: /assets/images/fulllogo.png
