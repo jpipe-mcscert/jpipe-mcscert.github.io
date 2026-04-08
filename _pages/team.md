@@ -22,6 +22,12 @@ core_team:
     url: "https://kalvinkhuu.github.io/"
     btn_label: "Read More"
     btn_class: "btn--primary btn--small"
+  - image_path: /assets/images/people/nicolas.jpg
+    title: "Nicolas Lacroix"
+    excerpt: "<p class=\"text-justify\">Nicolas is currently a PhD student in Software Engineering at Côte d’Azur University, in France. Studying machine learning pipelines, he contributes to the elaboration of dedicated abstractions to improve their traceability and characterization in the context of responsible AI. In the past, he worked as a software engineer alongside data scientists to integrate their models and efficiently process large datasets.</p>"
+    url: "https://www.linkedin.com/in/nicolas--lacroix/"
+    btn_label: "Read More"
+    btn_class: "btn--primary btn--small"
 alumni:
   - image_path: /assets/images/people/andrew.jpg
     title: "Andrew Bovbel"
