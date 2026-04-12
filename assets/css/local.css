@@ -1,0 +1,15 @@
+/* CSS cusotmization for jPipe language code blocks */
+code.language-jpipe.hljs {
+    font-size: 0.8em;
+    line-height: 1.2;
+}
+
+/* Always ustify text in paragraphs */
+p {
+    text-align: justify;
+}
+
+/* Except in tutorial/doc cards title */
+p.p-summary {
+    text-align: left;
+}
