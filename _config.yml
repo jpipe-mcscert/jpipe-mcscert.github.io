@@ -32,6 +32,10 @@ github_username:  mosser
 # Build settings
 markdown: kramdown
 
+kramdown:
+  toc_levels: 1..1
+  syntax_highlighter: rouge
+  
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
