@@ -15,6 +15,10 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
 
+### Journal Papers
+
+- _Capturing and Organizing Reusable Interaction Practices Using Justification and Feature Models_. Sébastien Mosser, Shyam Ravichandran, Kalvin Thuan-Phong Khuu, Brian Detlor, Denise Y. Geiskkovitch, Anne-Marie Pinna-Déry, and P.J. White. In Journal of Object Technology (JOT), Volume 25, nº3 (special issue - European Conference on Modelling Foundations and Applications). July 2026
+
 ### Conference Papers
 
 - _Model Cards for Responsible AI: Stop Carding, Start Modelling!_ Kalvin Thuan-Phong Khuu, Nicolas Lacroix, Baptiste Lacroix, Richard Paige, Mireille Blay-Fornarino, and Sébastien Mosser. In 2026 IEEE/ACM 48th International Conference on Software Engineering (ICSE-NIER '26) 2026
@@ -24,6 +28,7 @@ header:
 
 ### Tutorials
 
+- _Validating Requirements of Machine Learning Pipelines with Justification Models_. Sébastien Mosser, Kalvin Thuan-Phong Khuu. In 34th IEEE International Requirements Engineering Conference (RE), 2026
 - [Creating and Operationalizing Justification Models Using jPipe](http://hdl.handle.net/11375/31418). Sébastien Mosser, Nirmal Chaudhari, Cass Braun, Kai Sun. ACM/IEEE International Conference on Model Driven Engineering Languages and Systems Companion, 2024.
 
 ### Thesis 

@@ -14,6 +14,8 @@ gem "jekyll-include-cache", group: :jekyll_plugins
 gem 'jekyll-redirect-from', group: :jekyll_plugins
 
 gem "webrick"
+gem 'csv'
+gem 'bigdecimal'
 
 #gem "minimal-mistakes-jekyll"
 
