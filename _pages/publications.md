@@ -17,14 +17,19 @@ header:
 
 ### Journal Papers
 
-- _Capturing and Organizing Reusable Interaction Practices Using Justification and Feature Models_. Sébastien Mosser, Shyam Ravichandran, Kalvin Thuan-Phong Khuu, Brian Detlor, Denise Y. Geiskkovitch, Anne-Marie Pinna-Déry, and P.J. White. In Journal of Object Technology (JOT), Volume 25, nº3 (special issue - European Conference on Modelling Foundations and Applications). July 2026
+- _[Capturing and Organizing Reusable Interaction Practices Using Justification and Feature Models](https://www.jot.fm/contents/issue_2026_03/a14.html)_. Sébastien Mosser, Shyam Ravichandran, Kalvin Thuan-Phong Khuu, Brian Detlor, Denise Y. Geiskkovitch, Anne-Marie Pinna-Déry, and P.J. White. In Journal of Object Technology (JOT), Volume 25, nº3 (special issue - European Conference on Modelling Foundations and Applications). July 2026
 
 ### Conference Papers
 
-- _Model Cards for Responsible AI: Stop Carding, Start Modelling!_ Kalvin Thuan-Phong Khuu, Nicolas Lacroix, Baptiste Lacroix, Richard Paige, Mireille Blay-Fornarino, and Sébastien Mosser. In 2026 IEEE/ACM 48th International Conference on Software Engineering (ICSE-NIER '26) 2026
-- [_Incorporating FATES Principles in Continuous Development of ML-Integrated Systems: Importance of Requirements_](https://hal.science/hal-05393692v1). Jean-Michel Bruel, Tristan Gouaichault, Olivier Teste, Mireille Blay-Fornarino, Nicolas Lacroix, Frédéric Precioso, and Sébastien Mosser. In 1st International Workshop on Requirements Engineering for Accountable and Conscious Human-centered AI (REACH'AI), co-located with IEEE RE 2025. Valencia, Spain. September 2025 2025.
+- _[Model Cards for Responsible AI: Stop Carding, Start Modelling!](https://hal.science/hal-05679580v1)_ Kalvin Thuan-Phong Khuu, Nicolas Lacroix, Baptiste Lacroix, Richard Paige, Mireille Blay-Fornarino, and Sébastien Mosser. In 2026 IEEE/ACM 48th International Conference on Software Engineering (ICSE-NIER '26). April 2026.
 - 🇫🇷 [_Prise en compte des propriétés FATES en MLOps: perspectives et ambitions_](http://hdl.handle.net/11375/31417). Mireille Blay-Fornarino, Jean-Michel Bruel, Sébastien Mosser, Frédéric Precioso. Explain'AI (CNRS) 2025.
 - [_Yes, Configuring is Good, But Have You Ever Tried Justifying?_](http://hdl.handle.net/11375/28858). Sébastien Mosser, Corinne Pulgar, Mireille Blay-Fornarino, Deesha Patel, Aaron Loh, Jean-Michel Bruel. CONFLANG 2023 (abstract). 
+
+
+### Workshop Papers
+
+- _Safety First! Modelling Requirements from GPT-5 System Card using Lightweight Safety Models_. Kalvin Thuan-Phong Khuu, Nicolas Lacroix, Mireille Blay-Fornarino, and Sébastien Mosser. In 16th International Model-Driven Requirements Engineering (MoDRE), co-located with IEEE RE 2026. Montreal, Canada. August 2026.
+- [_Incorporating FATES Principles in Continuous Development of ML-Integrated Systems: Importance of Requirements_](https://hal.science/hal-05393692v1). Jean-Michel Bruel, Tristan Gouaichault, Olivier Teste, Mireille Blay-Fornarino, Nicolas Lacroix, Frédéric Precioso, and Sébastien Mosser. In 1st International Workshop on Requirements Engineering for Accountable and Conscious Human-centered AI (REACH'AI), co-located with IEEE RE 2025. Valencia, Spain. September 2025.
 
 ### Tutorials
 
