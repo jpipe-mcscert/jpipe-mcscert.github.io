@@ -11,7 +11,6 @@ header:
   overlay_image: /assets/images/covers/run.jpg
   show_overlay_excerpt: false	
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
-toc: true
 ---
 
 # Overview

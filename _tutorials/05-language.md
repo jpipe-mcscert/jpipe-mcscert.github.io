@@ -5,13 +5,12 @@ title: Growing your models - Language features
 excerpt: "Add depth with sub-conclusions, and split large models across files."
 permalink: /tutorials/language/
 header:
-  teaser: /assets/images/covers/blueprint.png
+  teaser: /assets/images/covers/blueprint2.jpg
   overlay_color: "#000"
   overlay_filter: "0.5"
-  overlay_image: /assets/images/covers/blueprint.png
+  overlay_image: /assets/images/covers/blueprint2.jpg
   show_overlay_excerpt: false	
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
-toc: true
 ---
 
 The [jPipe 101](/tutorials/jpipe101/) model was deliberately flat: one strategy, two facts. Real
@@ -67,7 +66,7 @@ and the layered structure is clear — the two sub-conclusions each carry their 
 the top strategy:
 
 <div align="center">
-<img src="/assets/images/tutorials/06_language/subconclusions.svg" alt="A layered release justification using sub-conclusions"/>
+<img src="/assets/images/tutorials/05_language/subconclusions.svg" alt="A layered release justification using sub-conclusions"/>
 </div>
 
 # Comments and layout

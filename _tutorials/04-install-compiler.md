@@ -11,7 +11,6 @@ header:
   overlay_image: /assets/images/covers/code.jpg
   show_overlay_excerpt: false	
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
-toc: true
 ---
 
 # Overview
@@ -66,7 +65,7 @@ Prefer not to use a package manager? Run jPipe as a JAR.
 
 1. Open the [jPipe Compiler releases page](https://github.com/jpipe-mcscert/jpipe-compiler/releases).
 2. Download `jpipe-cli-<VERSION>.jar` from the **Assets** of the latest release.
-   ![](/assets/images/tutorials/01_install/release.png)
+   ![](/assets/images/tutorials/04_install_compiler/release.png)
 3. Move it somewhere on your machine (e.g. `~/bin`).
 4. Add an alias to your shell profile (`.zshrc` or `.bashrc`):
    ```bash

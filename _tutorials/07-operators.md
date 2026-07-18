@@ -11,7 +11,6 @@ header:
   overlay_image: /assets/images/covers/puzzle.jpg
   show_overlay_excerpt: false	
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
-toc: true
 ---
 
 Big justifications are best built from small ones. Instead of writing one giant model, you argue each
@@ -59,9 +58,9 @@ justification backend {
 ```
 
 <div align="center">
-<img src="/assets/images/tutorials/10_operators/frontend.svg" alt="The frontend justification" style="max-height:260px"/>
+<img src="/assets/images/tutorials/07_operators/frontend.svg" alt="The frontend justification" style="max-height:260px"/>
 &nbsp;&nbsp;
-<img src="/assets/images/tutorials/10_operators/backend.svg" alt="The backend justification" style="max-height:260px"/>
+<img src="/assets/images/tutorials/07_operators/backend.svg" alt="The backend justification" style="max-height:260px"/>
 </div>
 
 `assemble` gathers their conclusions under a single new conclusion and strategy. It requires two
@@ -77,7 +76,7 @@ justification product is assemble(frontend, backend) {
 The two component arguments now hang under one roof:
 
 <div align="center">
-<img src="/assets/images/tutorials/10_operators/assembled.svg" alt="The assembled product justification"/>
+<img src="/assets/images/tutorials/07_operators/assembled.svg" alt="The assembled product justification"/>
 </div>
 
 Because the sources usually live in their own files, you will typically `load` them first:
@@ -125,7 +124,7 @@ justification refined is refine(base, detail) {
 The `hook` element in `base` is replaced by `detail`'s argument, deepening the tree:
 
 <div align="center">
-<img src="/assets/images/tutorials/10_operators/refined.svg" alt="The refined justification"/>
+<img src="/assets/images/tutorials/07_operators/refined.svg" alt="The refined justification"/>
 </div>
 
 # The two operators at a glance
