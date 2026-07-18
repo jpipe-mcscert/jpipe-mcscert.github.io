@@ -1,0 +1,33 @@
+digraph ecosystem {
+  rankdir=TB;
+  bgcolor="transparent";
+  nodesep=0.55;
+  ranksep=0.55;
+  node [fontname="Helvetica,sans-Serif", fontsize=12, shape=box,
+        style="rounded,filled", penwidth=1.2, margin="0.22,0.14"];
+  edge [fontname="Helvetica,sans-Serif", fontsize=10, color="#555555"];
+
+  // The star of the show: the IDE, the recommended starting point.
+  ide [fillcolor="#e0f2fe", color="#0284c7", penwidth=1.6,
+       label=<<b>▶&#160;&#160;START HERE</b><br/><br/><b>jPipe IDE</b><br/><font point-size="10">VS&#160;Code extension · managed mode</font><br/><font point-size="10">author · live preview · export</font>>];
+
+  // A gentle aside pinned next to the IDE.
+  note [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
+        label=<Most people<br/>need only this>];
+
+  // Invisible fork so one edge label covers both branches.
+  fork [shape=point, width=0.03, color="#555555"];
+
+  comp [fillcolor="#dcfce7", color="#16a34a",
+        label=<<b>jPipe Compiler</b><br/><font point-size="10">the <font face="Courier">jpipe</font> CLI</font><br/><font point-size="10">scripting · automation</font>>];
+
+  runner [fillcolor="#fef9c3", color="#ca8a04",
+          label=<<b>jPipe Runner</b><br/><font point-size="10">the <font face="Courier">jpipe-runner</font> CLI</font><br/><font point-size="10">executable checks in CI/CD</font>>];
+
+  ide -> fork [arrowhead=none, label="need a terminal or CI?"];
+  fork -> comp;
+  fork -> runner;
+
+  { rank=same; ide; note; }
+  ide -> note [style=dashed, arrowhead=none, color="#d97706", constraint=false];
+}

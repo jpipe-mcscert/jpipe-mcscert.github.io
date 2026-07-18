@@ -66,8 +66,8 @@ documentation:
 tutorials:
   - title: Getting Started
     children:
-      - title: "Install jPipe"
-        url: /tutorials/install/
+      - title: "Overview"
+        url: /tutorials/overview/
       - title: "Install the IDE"
         url: /tutorials/install/ide/
       - title: "jPipe 101"

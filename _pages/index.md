@@ -11,7 +11,7 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
   actions:
     - label: "<i class=\"fa-solid fa-download\"></i>&nbsp;Install"
-      url: "/tutorials/install"
+      url: "/tutorials/overview"
     - label: "<i class=\"fa-brands fa-github\"></i>&nbsp;Github"
       url: "https://github.com/jpipe-mcscert"
 
@@ -24,7 +24,7 @@ center_tiles:
     alt: ""
     title: "Install jPipe!"
     excerpt: "Install the jPipe language on your computer and start writing operational justifications."
-    url: "/tutorials/install"
+    url: "/tutorials/overview"
     btn_label: "Read More"
     btn_class: "btn--primary"
   - image_path: /assets/images/covers/pipeline_01.jpg
