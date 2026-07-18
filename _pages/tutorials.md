@@ -2,7 +2,9 @@
 title: Tutorials
 layout: archive
 permalink: /tutorials/
-classes: wide
+classes:
+  - wide
+  - section-grid
 sidebar:
   nav: "tutorials"
 header:
@@ -12,14 +14,6 @@ header:
   show_overlay_excerpt: true
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
-
-<style>
-  /* Grid cards float, so contain them per section to stop the next
-     section heading from flowing up into the previous section's cards. */
-  .entries-grid::after { content: ""; display: table; clear: both; }
-  .entries-grid .grid__item { margin-bottom: 0.25em; }
-  .archive__subtitle { margin-top: 0.25em; }
-</style>
 
 {% comment %}
   Tutorials are grouped using the section structure defined in

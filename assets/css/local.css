@@ -62,3 +62,30 @@ div.highlighter-rouge, figure.highlight {
 .page__content :not(pre) > code {
     font-size: 0.85em;
 }
+
+/* -------------------------------------------------------------------------
+   Section-grouped listing pages (tutorials, docs): body class `section-grid`.
+   Cards float, so contain them per section (clearfix) to stop the next
+   section heading from flowing up into the previous section's cards, and
+   tighten the vertical spacing between a heading and its grid.
+   ------------------------------------------------------------------------- */
+.section-grid .entries-grid::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.section-grid .entries-grid .grid__item {
+    margin-bottom: 0.25em;
+}
+.section-grid .archive__subtitle {
+    margin-top: 0.25em;
+}
+
+/* -------------------------------------------------------------------------
+   Publications page: body class `publications-list`. Slightly smaller,
+   justified text for the (dense) publication lists.
+   ------------------------------------------------------------------------- */
+.publications-list .page__content li {
+    font-size: 0.85em;
+    text-align: justify;
+}

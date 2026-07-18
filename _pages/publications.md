@@ -2,6 +2,8 @@
 layout: splash
 title: Publications
 permalink: /publications/
+classes:
+  - publications-list
 toc: true
 toc_sticky: true
 toc_label: "Outline"
