@@ -13,10 +13,14 @@ header:
   overlay_image: /assets/images/covers/setup.jpg
   show_overlay_excerpt: false	
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
-toc: true
 ---
 
 # What is jPipe?
+
+<div align="center">
+<img src="/assets/images/tutorials/01_overview/components.svg" alt="The jPipe IDE is the starting point; the compiler and runner are optional command-line tools for terminals and CI/CD" style="max-width:75%"/>
+</div>
+
 
 jPipe is a language and toolchain for **justification diagrams**: structured arguments that
 connect a top-level claim ("version 2.0 is ready to ship") down to the sub-claims, strategies,
@@ -29,9 +33,6 @@ anything, here is the map of the tools you will meet.
 
 # The three tools
 
-<div align="center">
-<img src="/assets/images/tutorials/01_install/components.svg" alt="The jPipe IDE is the starting point; the compiler and runner are optional command-line tools for terminals and CI/CD" style="max-width:100%"/>
-</div>
 
 | Tool | What it does | When you need it |
 |------|--------------|------------------|
@@ -45,8 +46,8 @@ Thanks to the extension's **managed mode**, the IDE can download and run the com
 for most people *installing the IDE is the only step you need*. You write a `.jd` file, the
 extension previews and validates it, and there is no separate command-line setup.
 
-👉 **[Install the jPipe IDE &rarr;](/tutorials/install/ide/)**
-{: .notice--success}
+1. **[Install the IDE](/tutorials/install/ide/)**: the one tool most readers need.
+2. **[jPipe 101](/tutorials/jpipe101/)**: write, preview, and export your first justification.
 
 # Going further: the command-line tools
 
@@ -59,11 +60,6 @@ outgrow the editor:
   operators](/tutorials/operators/).
 - **[The Runner](/tutorials/install/runner/)** installs `jpipe-runner` (Homebrew, APT, or pip) to
   make justifications executable, all the way to [CI/CD integration](/tutorials/cicd/).
-
-# Your path through Getting Started
-
-1. **[Install the IDE](/tutorials/install/ide/)**: the one tool most readers need.
-2. **[jPipe 101](/tutorials/jpipe101/)**: write, preview, and export your first justification.
 
 From there, follow **The Compiler** when you want to work from a terminal, and **The Runner** when
 you want your justifications checked automatically.

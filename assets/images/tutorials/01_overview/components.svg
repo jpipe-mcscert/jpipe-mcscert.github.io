@@ -20,17 +20,16 @@
 <!-- note_ide -->
 <g id="node4" class="node">
 <title>note_ide</title>
-<polygon fill="#fffbeb" stroke="#d97706" points="644.18,-289 550.38,-289 550.38,-229.33 650.18,-229.33 650.18,-283 644.18,-289"/>
-<polyline fill="none" stroke="#d97706" points="644.18,-289 644.18,-283"/>
-<polyline fill="none" stroke="#d97706" points="650.18,-283 644.18,-283"/>
-<text xml:space="preserve" text-anchor="start" x="567.65" y="-267.79" font-family="Helvetica,sans-Serif" font-size="10.00">the entry point:</text>
-<text xml:space="preserve" text-anchor="start" x="573.65" y="-256.54" font-family="Helvetica,sans-Serif" font-size="10.00">most people</text>
-<text xml:space="preserve" text-anchor="start" x="569.9" y="-245.29" font-family="Helvetica,sans-Serif" font-size="10.00">need only this</text>
+<polygon fill="#fffbeb" stroke="#d97706" points="632.18,-283.37 550.38,-283.37 550.38,-234.95 638.18,-234.95 638.18,-277.37 632.18,-283.37"/>
+<polyline fill="none" stroke="#d97706" points="632.18,-283.37 632.18,-277.37"/>
+<polyline fill="none" stroke="#d97706" points="638.18,-277.37 632.18,-277.37"/>
+<text xml:space="preserve" text-anchor="start" x="567.65" y="-262.16" font-family="Helvetica,sans-Serif" font-size="10.00">Most people</text>
+<text xml:space="preserve" text-anchor="start" x="573.65" y="-250.91" font-family="Helvetica,sans-Serif" font-size="10.00">start here</text>
 </g>
 <!-- ide&#45;&gt;note_ide -->
 <g id="edge4" class="edge">
 <title>ide&#45;&gt;note_ide</title>
-<path fill="none" stroke="#d97706" stroke-dasharray="5,2" d="M465.28,-259.16C493.49,-259.16 521.71,-259.16 549.92,-259.16"/>
+<path fill="none" stroke="#d97706" stroke-dasharray="5,2" d="M465.4,-259.16C493.59,-259.16 521.78,-259.16 549.98,-259.16"/>
 </g>
 <!-- fork -->
 <g id="node7" class="node">
@@ -50,7 +49,7 @@
 <text xml:space="preserve" text-anchor="start" x="197.65" y="-66.31" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">jPipe Compiler</text>
 <text xml:space="preserve" text-anchor="start" x="206.65" y="-45.46" font-family="Helvetica,sans-Serif" font-size="10.00">the </text>
 <text xml:space="preserve" text-anchor="start" x="223.15" y="-45.46" font-family="Courier,monospace" font-size="10.00">jpipe</text>
-<text xml:space="preserve" text-anchor="start" x="253.15" y="-45.46" font-family="Helvetica,sans-Serif" font-size="10.00"> CLI</text>
+<text xml:space="preserve" text-anchor="start" x="253.15" y="-45.46" font-family="Helvetica,sans-Serif" font-size="10.00"> CLI</text>
 <text xml:space="preserve" text-anchor="start" x="192.4" y="-22.96" font-family="Helvetica,sans-Serif" font-size="10.00">scripting · automation</text>
 </g>
 <!-- runner -->
@@ -60,7 +59,7 @@
 <text xml:space="preserve" text-anchor="start" x="445.15" y="-66.31" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="12.00">jPipe Runner</text>
 <text xml:space="preserve" text-anchor="start" x="428.65" y="-45.46" font-family="Helvetica,sans-Serif" font-size="10.00">the </text>
 <text xml:space="preserve" text-anchor="start" x="445.15" y="-45.46" font-family="Courier,monospace" font-size="10.00">jpipe&#45;runner</text>
-<text xml:space="preserve" text-anchor="start" x="517.15" y="-45.46" font-family="Helvetica,sans-Serif" font-size="10.00"> CLI</text>
+<text xml:space="preserve" text-anchor="start" x="517.15" y="-45.46" font-family="Helvetica,sans-Serif" font-size="10.00"> CLI</text>
 <text xml:space="preserve" text-anchor="start" x="420.4" y="-22.96" font-family="Helvetica,sans-Serif" font-size="10.00">executable checks in CI/CD</text>
 </g>
 <!-- comp&#45;&gt;runner -->

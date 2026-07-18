@@ -23,7 +23,7 @@ digraph ecosystem {
   comp [fillcolor="#dcfce7", color="#16a34a", label=<
     <table border="0" cellborder="0" cellspacing="4" cellpadding="3">
       <tr><td><b>jPipe Compiler</b></td></tr>
-      <tr><td><font point-size="10">the <font face="Courier">jpipe</font> CLI</font></td></tr>
+      <tr><td><font point-size="10">the <font face="Courier">jpipe</font>&#160;CLI</font></td></tr>
       <tr><td><font point-size="10">scripting · automation</font></td></tr>
     </table>>];
 
@@ -31,13 +31,13 @@ digraph ecosystem {
   runner [fillcolor="#fef9c3", color="#ca8a04", label=<
     <table border="0" cellborder="0" cellspacing="4" cellpadding="3">
       <tr><td><b>jPipe Runner</b></td></tr>
-      <tr><td><font point-size="10">the <font face="Courier">jpipe-runner</font> CLI</font></td></tr>
+      <tr><td><font point-size="10">the <font face="Courier">jpipe-runner</font>&#160;CLI</font></td></tr>
       <tr><td><font point-size="10">executable checks in CI/CD</font></td></tr>
     </table>>];
 
   // Sticky-note asides, one per tool, saying why you'd reach for it.
   note_ide    [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
-               label=<the entry point:<br/>most people<br/>need only this>];
+               label=<Most people<br/>start here>];
   note_comp   [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
                label=<power-user<br/>mode>];
   note_runner [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
