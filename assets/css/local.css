@@ -1,27 +1,64 @@
-/* CSS cusotmization for jPipe language code blocks */
-code.language-jpipe.hljs {
-    font-size: 0.9em;
-    line-height: 1.2;
-}
+/* CSS customization for the jPipe site.
+   Code highlighting is handled solely by highlight.js (github light theme);
+   rouge tokenization is disabled in _config.yml so every block is a bare
+   <pre><code class="language-x">, matching the jpipe blocks. */
 
-/* Always ustify text in paragraphs */
+/* Justify body text, except tutorial/doc card summaries */
 p {
     text-align: justify;
 }
-
-/* Except in tutorial/doc cards title */
 p.p-summary {
     text-align: left;
 }
 
-
+/* Compact body text so single-layout pages (tutorials/docs) align with the
+   smaller text used across splash pages (e.g. team member descriptions).
+   font-size only — line-height is left to the theme (1.5) to keep rhythm.
+   Code blocks are pinned to rem below, so this does not compound with them. */
 section.page__content.e-content {
-    line-height: 1.2;
     font-size: 0.8em;
 }
 
-div.highlighter-rouge, figure.highlight {
-    line-height: 1.2;
-    font-size: 0.9em;
+/* Tables use rem (not the theme's 0.75em) so they don't compound with the
+   0.8em body shrink above and end up unreadably small. */
+.page__content table {
+    font-size: 0.75rem;
 }
 
+/* Notices match tables (rem, no compounding). !important overrides the theme's
+   own `font-size: 0.75em !important` on .notice / .notice--* variants. */
+.page__content .notice,
+.page__content [class^="notice--"],
+.page__content [class*=" notice--"] {
+    font-size: 0.75rem !important;
+}
+
+/* One consistent look for ALL code blocks (jpipe + every language).
+   rem font-size avoids the em compounding that made code dwarf the notices;
+   a single line-height keeps vertical rhythm predictable. */
+pre code.hljs,
+div.highlighter-rouge pre.highlight,
+figure.highlight pre {
+    display: block;
+    font-family: Monaco, Consolas, "Lucida Console", monospace;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    background: #f6f8fa;
+    border: 1px solid #eaecef;
+    border-radius: 6px;
+    padding: 1em;
+    overflow-x: auto;
+}
+
+/* Neutralize the theme's dark rouge container in case rouge is ever re-enabled */
+div.highlighter-rouge, figure.highlight {
+    background: transparent;
+    color: inherit;
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Distinct but modest inline code */
+.page__content :not(pre) > code {
+    font-size: 0.85em;
+}

@@ -34,8 +34,11 @@ markdown: kramdown
 
 kramdown:
   toc_levels: 1..1
-  syntax_highlighter: rouge
-  
+  # Rouge tokenization disabled: highlight.js is the sole highlighter (see head/custom.html).
+  # This makes every fenced block emit a bare <pre><code class="language-x">, matching jpipe.
+  syntax_highlighter_opts:
+    disable: true
+
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -78,8 +81,6 @@ defaults:
       author_profile: false
       sidebar: 
         nav: tutorials
-
-enable_copy_code_button: true
 
 lunr:
   search_within_pages: true
