@@ -13,92 +13,117 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
 
-The [QualityGate template](/tutorials/templates/) captured a reusable argument shape once. But a real
-project has many arguments that should reuse it: the frontend, the backend, and the docs each need a
-"is it ready?" justification of the same shape. You do not want to copy `QualityGate` into every
-file.
+On the [templates tutorial](/tutorials/templates/) the `quality` template and the `readiness`
+justification that instantiates it shared a single file. That is fine for a demo, but a template only
+earns its keep when it is *shared*: many arguments across a project should reuse the same `quality`
+shape, and none of them wants a private copy of it.
 
-This is **separation of concerns**: keep the reusable template in one file, keep each concern's
-argument in its own file, and pull the pieces together. jPipe's `load` directive is what pulls them
-together.
+The fix is **separation of concerns**: keep the reusable template in one file, keep each argument in
+its own file, and let jPipe stitch them together. The `load` directive pulls a model out of another
+file and into scope.
 
 # The `load` directive
 
-Put the template in its own file:
+Give the template a file of its own:
 
 ```jpipe
-// gates.jd
-template QualityGate {
-  conclusion c is "The artifact is ready"
-  strategy s is "All quality gates pass"
-  s supports c
-  @support ev is "TBD"
-  ev supports s
+// quality.jd
+template quality {
+  conclusion ready is "Version 2.0 is ready to ship"
+  strategy gates is "All release gates pass"
+  gates supports ready
+
+  @support tested is "Testing is demonstrated"
+  tested supports gates
+
+  @support documented is "Documentation is demonstrated"
+  documented supports gates
 }
 ```
 
-`load` imports **every model** declared in another `.jd` file, resolved relative to the current
-file. Each concern can now `load` the template and specialise it:
+The `readiness` argument then lives in its own file. It `load`s `quality.jd` and instantiates the
+template exactly as before; the only change is that `quality` now comes from another file:
 
 ```jpipe
-// frontend.jd
-load "gates.jd"
+// readiness.jd
+load "quality.jd"
 
-justification frontend implements QualityGate {
-  evidence QualityGate:ev is "Frontend tests pass"
-  QualityGate:ev supports QualityGate:s
+justification readiness implements quality {
+  sub-conclusion quality:tested is "The code is tested"
+  strategy testing is "The test suite passes with high coverage"
+  testing supports quality:tested
+  evidence suite is "The test suite passes"
+  suite supports testing
+  evidence coverage is "Coverage is above 80%"
+  coverage supports testing
+
+  sub-conclusion quality:documented is "The documentation is updated"
+  strategy docs is "The changelog and API docs are current"
+  docs supports quality:documented
+  evidence changelog is "The changelog is up to date"
+  changelog supports docs
 }
 ```
 
-`backend.jd` and `docs.jd` do exactly the same, each with their own evidence: one template, argued in
-three files, no copy-paste.
+`load "quality.jd"` imports **every model** declared in that file, resolved relative to the current
+file. Compile `readiness.jd` and you get back the very
+[same argument](/tutorials/templates/#instantiating-a-template-with-implements) you built on the
+templates tutorial, only now the template is shared: a second file, say `docs.jd`, could `load
+"quality.jd"` and instantiate `quality` with its own evidence, no copy-paste.
 
-# Namespaces: avoiding name clashes
+# Binding a load with `as`
 
-Independent files reuse short ids like `c`, `s`, or `ev`. When you load several of them, those names
-can collide. Bind a loaded file under a **namespace** with `as`, and reach its models through that
-prefix:
+As a project grows you may `load` several files at once, and their model names can collide (two files
+might each define a `quality`). Bind a file under a name with **`as`**, and everything it declares is
+reachable through that prefix:
 
 ```jpipe
-// frontend.jd
-load "gates.jd" as gates
+// readiness.jd
+load "quality.jd" as templates
 
-justification frontend implements gates:QualityGate {
-  evidence gates:QualityGate:ev is "Frontend tests pass"
-  gates:QualityGate:ev supports gates:QualityGate:s
+justification readiness implements templates:quality {
+  sub-conclusion templates:quality:tested is "The code is tested"
+  strategy testing is "The test suite passes with high coverage"
+  testing supports templates:quality:tested
+  evidence suite is "The test suite passes"
+  suite supports testing
+  evidence coverage is "Coverage is above 80%"
+  coverage supports testing
+
+  sub-conclusion templates:quality:documented is "The documentation is updated"
+  strategy docs is "The changelog and API docs are current"
+  docs supports templates:quality:documented
+  evidence changelog is "The changelog is up to date"
+  changelog supports docs
 }
 ```
 
-Every model from `gates.jd` is then reachable as `gates:<ModelName>`, and its elements as
-`gates:<ModelName>:<id>`. You can confirm how names resolve with the diagnostic mode: the symbol
-table shows exactly where each qualified id was defined:
+The template is now reached as `templates:quality` and its holes as `templates:quality:tested`: the
+same [qualified ids](/tutorials/templates/#a-note-on-namespaces) you already met, with the file's
+alias in front. Reach for `as` whenever a plain `load` would leave a name ambiguous.
 
-```
-=== Symbol Table ===
-template "gates:QualityGate"  [gates.jd:2:9]
-  c   3:13
-  s   4:11
-  ev  6:11
-justification "frontend"  [frontend.jd:3:14]
-  gates:QualityGate:c   gates.jd:3:13
-  gates:QualityGate:s   gates.jd:4:11
-  gates:QualityGate:ev  4:11
-```
+The IDE's **Outline panel** makes the split visible: everything imported from `quality.jd` sits under
+the `templates` namespace, while the current file's own models stay in the **default** namespace.
+There, as [on the templates page](/tutorials/templates/#what-is-inherited-what-is-declared), the
+`readiness` justification lists its inherited holes (`(inherited) quality:tested`, ...) alongside the
+elements it declares to fill them.
 
-# Loading is only half the story
+<div align="center">
+<img src="/assets/images/tutorials/204_load/ns_outline.png" alt="The IDE Outline panel showing the loaded quality.jd models under the templates namespace, separate from the current file's default namespace"/>
+</div>
 
-`load` brings a model into scope, but on its own it does nothing to your top-level argument: you
-still have to *combine* the per-concern justifications into one. That is the job of the **composition
-operators**:
+# From many files to one argument
 
-- **[assemble](/tutorials/assemble/)** joins the `frontend`, `backend`, and `docs` justifications
-  under one product-level conclusion.
-- **[refine](/tutorials/refine/)** expands a single node of a justification with a second, loaded
-  model.
+Splitting is what makes an argument **modular**: each file can be written, reviewed, and reused on its
+own, while a shared template like `quality` keeps them all arguing to the same standard. `load` is
+only the glue that lets one file see another; turning those loaded pieces into a single tree is the
+job of jPipe's **composition operators**, `assemble` and `refine`. Together they let a large assurance
+case grow as a handful of small, focused files instead of one sprawling model.
 
 # Where to next?
 
-- **[assemble independent arguments](/tutorials/assemble/)** into one product-level justification.
+- **[assemble](/tutorials/assemble/)** independent arguments side by side under one shared conclusion.
+- **[refine](/tutorials/refine/)** a single node by grafting a loaded model onto it.
 - **[Make it executable](/tutorials/runner/)** binds each piece of evidence to a real check.
 
 For larger, real-world models split across files, see the
