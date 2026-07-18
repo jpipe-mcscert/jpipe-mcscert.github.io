@@ -92,3 +92,7 @@ tutorials:
         url: /tutorials/runner/
       - title: "CI/CD Integration"
         url: /tutorials/cicd/
+
+  # The IDE (advanced usage) — 4xx tutorials, none yet.
+  - title: The IDE
+    children: []

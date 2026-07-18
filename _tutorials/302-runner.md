@@ -148,7 +148,7 @@ conclusion<release:c> :: Version 2.0 is ready to ship                 | PASS |
 It also writes a diagram, coloured by the outcome — your justification, *verified*:
 
 <div align="center">
-<img src="/assets/images/tutorials/09_runner/executed.svg" alt="The executed release justification, coloured by result"/>
+<img src="/assets/images/tutorials/302_runner/executed.svg" alt="The executed release justification, coloured by result"/>
 </div>
 
 If, say, the changelog were missing, `release:e2` would come back FAIL, the strategy and conclusion

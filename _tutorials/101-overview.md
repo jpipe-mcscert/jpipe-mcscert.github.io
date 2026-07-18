@@ -15,18 +15,15 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
 
-# What is jPipe?
-
-<div align="center">
-<img src="/assets/images/tutorials/01_overview/components.svg" alt="The jPipe IDE is the starting point; the compiler and runner are optional command-line tools for terminals and CI/CD" style="max-width:75%"/>
-</div>
-
-
 jPipe is a language and toolchain for **justification diagrams**: structured arguments that
 connect a top-level claim ("version 2.0 is ready to ship") down to the sub-claims, strategies,
 and evidence that support it. You write a model in a small textual language (a `.jd` file), and
 jPipe renders it as a diagram you can read and review, then later *execute* against real data to
 check that the argument still holds.
+
+<div align="center">
+<img src="/assets/images/tutorials/101_overview/components.svg" alt="The jPipe IDE is the starting point; the compiler and runner are optional command-line tools for terminals and CI/CD" style="max-width:75%"/>
+</div>
 
 This section takes you from a blank editor to your first justification. Before you install
 anything, here is the map of the tools you will meet.

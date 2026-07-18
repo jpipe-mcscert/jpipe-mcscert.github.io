@@ -28,7 +28,7 @@ install the compiler by hand, because the IDE downloads and runs it for you.
 4. Choose **jPipe Language (McSCert)** (publisher `mcscert`) to be sure you have the official tool.
 5. Click **Install**.
 
-![](/assets/images/tutorials/02_install_ide/marketplace.png)
+![](/assets/images/tutorials/102_install_ide/marketplace.png)
 
 The extension activates automatically whenever you open a `.jd` (Justification Diagram) file.
 
@@ -49,7 +49,7 @@ with your Java, and calls Graphviz to render the diagrams.
    (McSCert)** and choose **Settings**, or open VS Code Settings (`Ctrl+,` / `⌘,`) and search for
    *jPipe*.
 
-   ![](/assets/images/tutorials/02_install_ide/settings.png)
+   ![](/assets/images/tutorials/102_install_ide/settings.png)
 
 2. Click **Install from GitHub Release**. The extension fetches the list of published compiler
    releases.
@@ -57,19 +57,19 @@ with your Java, and calls Graphviz to render the diagrams.
 3. Select the compiler version you want from the list. The extension downloads that release's JAR
    over HTTPS into its own private storage.
 
-   ![](/assets/images/tutorials/02_install_ide/release-picker.png)
+   ![](/assets/images/tutorials/102_install_ide/release-picker.png)
 
 4. Back in the settings, set the **execution mode** dropdown to **managed** (rather than **cli**).
    The IDE now runs the compiler it just downloaded.
 
-   ![](/assets/images/tutorials/02_install_ide/execution-mode.png)
+   ![](/assets/images/tutorials/102_install_ide/execution-mode.png)
 
 # Verify the setup
 
 Click on **Check jPipe Installation** from the **Settings** page. It reports which execution mode is
 active and whether the compiler (and Graphviz) can be reached.
 
-![](/assets/images/tutorials/02_install_ide/diagnostic.png)
+![](/assets/images/tutorials/102_install_ide/diagnostic.png)
 
 🎉 That's it: you can now open a `.jd` file and use **jPipe: Open Diagram Preview**. 
 Head to [jPipe 101](/tutorials/jpipe101/) to write your first model.

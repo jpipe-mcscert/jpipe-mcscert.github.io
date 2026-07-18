@@ -43,7 +43,7 @@ The `@support` slot is the whole point: it fixes the *shape* of the argument (a 
 by a strategy, backed by evidence) while leaving the *content* of the evidence open.
 
 <div align="center">
-<img src="/assets/images/tutorials/06_patterns/template.svg" alt="The QualityGate template with an abstract-support slot"/>
+<img src="/assets/images/tutorials/203_patterns/template.svg" alt="The QualityGate template with an abstract-support slot"/>
 </div>
 
 `@support` is only valid inside a `template` — a plain `justification` has no holes.
@@ -67,7 +67,7 @@ The result is a complete, ordinary justification — the template's conclusion a
 by concrete evidence:
 
 <div align="center">
-<img src="/assets/images/tutorials/06_patterns/implemented.svg" alt="A release justification implementing the QualityGate template"/>
+<img src="/assets/images/tutorials/203_patterns/implemented.svg" alt="A release justification implementing the QualityGate template"/>
 </div>
 
 # Why bother?

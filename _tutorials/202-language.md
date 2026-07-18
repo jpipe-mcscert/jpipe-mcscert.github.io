@@ -66,7 +66,7 @@ and the layered structure is clear — the two sub-conclusions each carry their 
 the top strategy:
 
 <div align="center">
-<img src="/assets/images/tutorials/05_language/subconclusions.svg" alt="A layered release justification using sub-conclusions"/>
+<img src="/assets/images/tutorials/202_language/subconclusions.svg" alt="A layered release justification using sub-conclusions"/>
 </div>
 
 # Comments and layout

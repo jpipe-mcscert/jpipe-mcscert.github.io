@@ -98,12 +98,12 @@ Two useful patterns:
 <!-- CAPTURE-SS: The GitHub Actions run summary for the "Justify the release" workflow (green check). -->
 **📸 Screenshot needed:** the Actions run summary for *Justify the release* (passing).
 {: .notice--warning}
-![](/assets/images/tutorials/10_cicd/action-run.png)
+![](/assets/images/tutorials/303_cicd/action-run.png)
 
 <!-- CAPTURE-SS: The pull-request comment containing the embedded, coloured justification diagram. -->
 **📸 Screenshot needed:** the PR comment with the embedded justification diagram.
 {: .notice--warning}
-![](/assets/images/tutorials/10_cicd/pr-comment.png)
+![](/assets/images/tutorials/303_cicd/pr-comment.png)
 
 <!-- CAPTURE-CAST (optional): open a PR -> the action runs -> the diagram comment appears. -->
 
