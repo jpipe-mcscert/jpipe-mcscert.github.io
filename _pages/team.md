@@ -22,6 +22,12 @@ core_team:
     url: "https://kalvinkhuu.github.io/"
     btn_label: "Read More"
     btn_class: "btn--primary btn--small"
+  - image_path: /assets/images/people/corentin.png
+    title: "Corentin Veillard"
+    excerpt: "<p class=\"text-justify\">I am currently studying computer science with a specialization in Software Architecture at Polytech Nice Sophia University, an engineering school. I have joined the team as a visiting grad student, where my work focuses on developing the execution environment and applying jPipe to real-world use cases. This opportunity allows me to bring my academic background in system design to practical, hands-on software projects and contribute directly to the team's goals.</p>"
+    url: "https://www.linkedin.com/in/corentin-veillard-817b61270/"
+    btn_label: "Read More"
+    btn_class: "btn--primary btn--small"
   - image_path: /assets/images/people/nicolas.jpg
     title: "Nicolas Lacroix"
     excerpt: "<p class=\"text-justify\">Nicolas is currently a PhD student in Software Engineering at Côte d’Azur University, in France. Studying machine learning pipelines, he contributes to the elaboration of dedicated abstractions to improve their traceability and characterization in the context of responsible AI. In the past, he worked as a software engineer alongside data scientists to integrate their models and efficiently process large datasets.</p>"
