@@ -23,6 +23,24 @@ bundle exec jekyll build     # one-off build into _site/
   front matter. Tutorial pages are kept short and self-contained, so a sidebar
   TOC adds clutter without value. (Other collections may still use it.)
 
+## Pending screenshots
+
+Tutorial images live in **one `assets/images/tutorials/NN_<name>/` folder per
+tutorial**, numbered to match the tutorial. When a screenshot has **not been
+captured yet**, mark its spot with a visible **`📸 Screenshot needed`** callout
+so no capture is forgotten and nothing ships silently blank:
+
+```
+**📸 Screenshot needed:** what the shot should show.
+{: .notice--warning}
+![](/assets/images/tutorials/NN_<name>/<file>.png)
+```
+
+Keep the `![]()` ref (it is the eventual home for the image). Remove **only the
+callout** once the real screenshot is committed, since a captured image renders
+on its own. Do not leave a bare `![]()` pointing at a missing file with no
+callout: that ships a broken image icon with no signal that it is pending.
+
 ## No inline CSS
 
 Do **not** put `<style>` blocks inside Markdown pages. All custom styling goes
