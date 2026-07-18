@@ -1,33 +1,62 @@
 digraph ecosystem {
   rankdir=TB;
   bgcolor="transparent";
-  nodesep=0.55;
-  ranksep=0.55;
+  nodesep=0.6;
+  ranksep=0.6;
   node [fontname="Helvetica,sans-Serif", fontsize=12, shape=box,
-        style="rounded,filled", penwidth=1.2, margin="0.22,0.14"];
+        style="rounded,filled", penwidth=1.2, margin="0.24,0.18"];
   edge [fontname="Helvetica,sans-Serif", fontsize=10, color="#555555"];
 
-  // The star of the show: the IDE, the recommended starting point.
-  ide [fillcolor="#e0f2fe", color="#0284c7", penwidth=1.6,
-       label=<<b>▶&#160;&#160;START HERE</b><br/><br/><b>jPipe IDE</b><br/><font point-size="10">VS&#160;Code extension · managed mode</font><br/><font point-size="10">author · live preview · export</font>>];
+  // Tool boxes use HTML-table labels so line spacing (cellspacing/cellpadding)
+  // stays airy and even.
 
-  // A gentle aside pinned next to the IDE.
-  note [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
-        label=<Most people<br/>need only this>];
+  // The star of the show: the IDE, the recommended entry point.
+  ide [fillcolor="#e0f2fe", color="#0284c7", penwidth=1.6, label=<
+    <table border="0" cellborder="0" cellspacing="4" cellpadding="3">
+      <tr><td><b>▶&#160;&#160;START HERE</b></td></tr>
+      <tr><td><b>jPipe IDE</b></td></tr>
+      <tr><td><font point-size="10">VS&#160;Code extension · managed mode</font></td></tr>
+      <tr><td><font point-size="10">author · live preview · export</font></td></tr>
+    </table>>];
+
+  // The power-user tool: the compiler CLI.
+  comp [fillcolor="#dcfce7", color="#16a34a", label=<
+    <table border="0" cellborder="0" cellspacing="4" cellpadding="3">
+      <tr><td><b>jPipe Compiler</b></td></tr>
+      <tr><td><font point-size="10">the <font face="Courier">jpipe</font> CLI</font></td></tr>
+      <tr><td><font point-size="10">scripting · automation</font></td></tr>
+    </table>>];
+
+  // The runner: turns a justification into an executable check.
+  runner [fillcolor="#fef9c3", color="#ca8a04", label=<
+    <table border="0" cellborder="0" cellspacing="4" cellpadding="3">
+      <tr><td><b>jPipe Runner</b></td></tr>
+      <tr><td><font point-size="10">the <font face="Courier">jpipe-runner</font> CLI</font></td></tr>
+      <tr><td><font point-size="10">executable checks in CI/CD</font></td></tr>
+    </table>>];
+
+  // Sticky-note asides, one per tool, saying why you'd reach for it.
+  note_ide    [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
+               label=<the entry point:<br/>most people<br/>need only this>];
+  note_comp   [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
+               label=<power-user<br/>mode>];
+  note_runner [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
+               label=<needed to run<br/>the justification>];
 
   // Invisible fork so one edge label covers both branches.
   fork [shape=point, width=0.03, color="#555555"];
-
-  comp [fillcolor="#dcfce7", color="#16a34a",
-        label=<<b>jPipe Compiler</b><br/><font point-size="10">the <font face="Courier">jpipe</font> CLI</font><br/><font point-size="10">scripting · automation</font>>];
-
-  runner [fillcolor="#fef9c3", color="#ca8a04",
-          label=<<b>jPipe Runner</b><br/><font point-size="10">the <font face="Courier">jpipe-runner</font> CLI</font><br/><font point-size="10">executable checks in CI/CD</font>>];
 
   ide -> fork [arrowhead=none, label="need a terminal or CI?"];
   fork -> comp;
   fork -> runner;
 
-  { rank=same; ide; note; }
-  ide -> note [style=dashed, arrowhead=none, color="#d97706", constraint=false];
+  // Dashed tethers link each tool to its aside. Kept as flat edges within a
+  // shared rank so the notes sit beside their tools (outer sides).
+  { rank=same; note_ide; ide; }
+  ide -> note_ide [style=dashed, arrowhead=none, color="#d97706"];
+
+  { rank=same; note_comp; comp; runner; note_runner; }
+  note_comp -> comp [style=dashed, arrowhead=none, color="#d97706"];
+  comp -> runner [style=invis];
+  runner -> note_runner [style=dashed, arrowhead=none, color="#d97706"];
 }
