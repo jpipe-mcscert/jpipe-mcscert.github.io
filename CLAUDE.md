@@ -22,6 +22,10 @@ bundle exec jekyll build     # one-off build into _site/
 - **No table of contents in tutorials.** Do not set `toc: true` in `_tutorials/`
   front matter. Tutorial pages are kept short and self-contained, so a sidebar
   TOC adds clutter without value. (Other collections may still use it.)
+- **Element ids in `.jd` examples: single words, no camelCase.** Prefer short,
+  lowercase, single-word ids (`ready`, `gates`, `test`, `changelog`) over terse
+  letters (`c`, `s`, `e1`) *and* over camelCase (`gatesPass`, `thoroughTesting`).
+  Meaningful single-word ids make the `x supports y` edges read like sentences.
 
 ## Pending screenshots
 
