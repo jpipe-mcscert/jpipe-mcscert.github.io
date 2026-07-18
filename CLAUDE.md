@@ -85,8 +85,8 @@ rest order within it, so a new page slots into its category without renumbering
 the others:
 
 - `1xx` — Getting Started
-- `2xx` — The Compiler
-- `3xx` — The Runner
+- `2xx` — The Language
+- `3xx` — Execution
 - `4xx` — The IDE (advanced usage)
 
 The filename order drives the theme's Previous/Next pager, so the categories

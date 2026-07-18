@@ -51,13 +51,12 @@ extension previews and validates it, and there is no separate command-line setup
 You do not need these to get started, and you can always add them later. Reach for them when you
 outgrow the editor:
 
-- **[The Compiler](/tutorials/install/compiler/)** installs the `jpipe` CLI (Homebrew, APT, a JAR,
-  or from source) for scripting and automation. It is the home of the language features
-  ([sub-conclusions](/tutorials/sub-conclusions/), [splitting models](/tutorials/modularity/)),
-  [patterns](/tutorials/patterns/), and the composition operators
-  ([assemble](/tutorials/assemble/), [refine](/tutorials/refine/)).
-- **[The Runner](/tutorials/install/runner/)** installs `jpipe-runner` (Homebrew, APT, or pip) to
-  make justifications executable, all the way to [CI/CD integration](/tutorials/cicd/).
+- The **[compiler CLI](/tutorials/install/compiler/)** (Homebrew, APT, a JAR, or from source) adds
+  scripting and automation, and opens up **The Language**: [sub-conclusions](/tutorials/sub-conclusions/),
+  [patterns](/tutorials/patterns/), [splitting models](/tutorials/modularity/), and the composition
+  operators ([assemble](/tutorials/assemble/), [refine](/tutorials/refine/)).
+- The **[runner](/tutorials/install/runner/)** (Homebrew, APT, or pip) makes justifications
+  executable, all the way to [CI/CD integration](/tutorials/cicd/) under **Execution**.
 
-From there, follow **The Compiler** when you want to work from a terminal, and **The Runner** when
-you want your justifications checked automatically.
+From there, follow **The Language** to model richer arguments, and **Execution** to check them
+automatically.
