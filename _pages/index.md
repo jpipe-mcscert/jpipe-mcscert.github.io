@@ -10,7 +10,7 @@ header:
   show_overlay_excerpt: true
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
   actions:
-    - label: "<i class=\"fa-solid fa-download\"></i>&nbsp;Install"
+    - label: "<i class=\"fa-solid fa-rocket\"></i>&nbsp;Get Started"
       url: "/tutorials/overview"
     - label: "<i class=\"fa-brands fa-github\"></i>&nbsp;Github"
       url: "https://github.com/jpipe-mcscert"
@@ -22,8 +22,8 @@ intro:
 center_tiles:
   - image_path: /assets/images/covers/setup.jpg
     alt: ""
-    title: "Install jPipe!"
-    excerpt: "Install the jPipe language on your computer and start writing operational justifications."
+    title: "Get started!"
+    excerpt: "Meet the three jPipe tools and set up your environment to start writing operational justifications."
     url: "/tutorials/overview"
     btn_label: "Read More"
     btn_class: "btn--primary"
