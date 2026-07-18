@@ -1,9 +1,7 @@
 ---
 title: Tutorials
-layout: collection
+layout: archive
 permalink: /tutorials/
-collection: tutorials
-entries_layout: grid
 classes: wide
 sidebar:
   nav: "tutorials"
@@ -14,3 +12,30 @@ header:
   show_overlay_excerpt: true
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
+
+<style>
+  /* Grid cards float, so contain them per section to stop the next
+     section heading from flowing up into the previous section's cards. */
+  .entries-grid::after { content: ""; display: table; clear: both; }
+  .entries-grid .grid__item { margin-bottom: 0.25em; }
+  .archive__subtitle { margin-top: 0.25em; }
+</style>
+
+{% comment %}
+  Tutorials are grouped using the section structure defined in
+  _data/navigation.yml (the "tutorials" nav). Each section becomes a
+  category heading, and its children are matched to the collection
+  documents by URL and rendered as grid cards.
+{% endcomment %}
+{% for section in site.data.navigation.tutorials %}
+  <h2 class="archive__subtitle">{{ section.title }}</h2>
+  <div class="entries-grid">
+    {% for item in section.children %}
+      {% for post in site.tutorials %}
+        {% if post.url == item.url %}
+          {% include archive-single.html type="grid" %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+{% endfor %}
