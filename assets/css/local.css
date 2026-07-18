@@ -25,6 +25,12 @@ section.page__content.e-content {
     font-size: 0.75rem;
 }
 
+/* Give in-content images (diagrams, screenshots) a little breathing room so
+   they don't sit flush against the surrounding prose. */
+.page__content.e-content img {
+    margin: 0.9em 0;
+}
+
 /* Notices match tables (rem, no compounding). !important overrides the theme's
    own `font-size: 0.75em !important` on .notice / .notice--* variants. */
 .page__content .notice,

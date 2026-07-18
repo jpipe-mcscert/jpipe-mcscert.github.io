@@ -19,6 +19,9 @@ bundle exec jekyll build     # one-off build into _site/
   parenthetical. A plain hyphen ("-") for ranges (e.g. `2024 - 2028`) is fine.
 - Body paragraphs are justified site-wide (see `p { text-align: justify }` in
   `assets/css/local.css`). Match that when adding prose.
+- **No table of contents in tutorials.** Do not set `toc: true` in `_tutorials/`
+  front matter. Tutorial pages are kept short and self-contained, so a sidebar
+  TOC adds clutter without value. (Other collections may still use it.)
 
 ## No inline CSS
 
