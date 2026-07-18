@@ -53,7 +53,7 @@ outgrow the editor:
 
 - The **[compiler CLI](/tutorials/install/compiler/)** (Homebrew, APT, a JAR, or from source) adds
   scripting and automation, and opens up **The Language**: [sub-conclusions](/tutorials/sub-conclusions/),
-  [patterns](/tutorials/patterns/), [splitting models](/tutorials/modularity/), and the composition
+  [templates](/tutorials/templates/), [splitting models](/tutorials/modularity/), and the composition
   operators ([assemble](/tutorials/assemble/), [refine](/tutorials/refine/)).
 - The **[runner](/tutorials/install/runner/)** (Homebrew, APT, or pip) makes justifications
   executable, all the way to [CI/CD integration](/tutorials/cicd/) under **Execution**.

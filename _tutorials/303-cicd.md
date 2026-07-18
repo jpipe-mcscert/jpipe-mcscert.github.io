@@ -109,7 +109,7 @@ Two useful patterns:
 
 # Where to next?
 
-- Make the argument itself more reusable with **[Patterns](/tutorials/patterns/)** and the
+- Make the argument itself more reusable with **[Templates](/tutorials/templates/)** and the
   composition operators (**[assemble](/tutorials/assemble/)**, **[refine](/tutorials/refine/)**).
 
 Full action reference:

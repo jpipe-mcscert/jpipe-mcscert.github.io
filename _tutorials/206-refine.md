@@ -76,7 +76,7 @@ will [`load`](/tutorials/modularity/) them first.
 # Where to next?
 
 - **[assemble](/tutorials/assemble/)** composes independent arguments side by side.
-- **[Patterns](/tutorials/patterns/)** specialise a reusable `template` with `implements`.
+- **[Templates](/tutorials/templates/)** capture a reusable argument skeleton you instantiate with `implements`.
 - **[Make it executable](/tutorials/runner/)** binds each piece of evidence to a real check.
 
 For larger compositions in practice, see the

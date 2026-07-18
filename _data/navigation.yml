@@ -79,8 +79,8 @@ tutorials:
         url: /tutorials/install/compiler/
       - title: "Sub-conclusions"
         url: /tutorials/sub-conclusions/
-      - title: "Using Patterns"
-        url: /tutorials/patterns/
+      - title: "Templates"
+        url: /tutorials/templates/
       - title: "Splitting models"
         url: /tutorials/modularity/
       - title: "Assemble"

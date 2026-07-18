@@ -97,7 +97,7 @@ justification product is assemble(frontend, backend) {
 # Where to next?
 
 - **[refine](/tutorials/refine/)** expands a single node into a deeper argument.
-- **[Patterns](/tutorials/patterns/)** specialise a reusable `template` with `implements`.
+- **[Templates](/tutorials/templates/)** capture a reusable argument skeleton you instantiate with `implements`.
 - **[Make it executable](/tutorials/runner/)** binds each piece of evidence to a real check.
 
 For larger compositions in practice, see the

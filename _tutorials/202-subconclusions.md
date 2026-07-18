@@ -101,9 +101,9 @@ sub-conclusions, to the single conclusion at the top:
 
 # Where to next?
 
+- **[Templates](/tutorials/templates/)** capture a reusable argument shape once and reapply it.
 - **[Splitting models with `load`](/tutorials/modularity/)** breaks a large argument into per-concern
   files you can reuse and compose.
-- **[Patterns](/tutorials/patterns/)** capture a reusable argument shape once and reapply it.
 - **[Make it executable](/tutorials/runner/)** binds each piece of evidence to a real check.
 
 For larger, real-world models, see the

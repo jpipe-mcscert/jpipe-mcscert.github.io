@@ -13,7 +13,7 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
 
-The [QualityGate pattern](/tutorials/patterns/) captured a reusable argument shape once. But a real
+The [QualityGate template](/tutorials/templates/) captured a reusable argument shape once. But a real
 project has many arguments that should reuse it: the frontend, the backend, and the docs each need a
 "is it ready?" justification of the same shape. You do not want to copy `QualityGate` into every
 file.
