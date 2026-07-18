@@ -3,6 +3,8 @@ layout: single
 classes: wide
 title: Overview
 permalink: /tutorials/overview/
+redirect_from:
+  - /tutorials/install/
 excerpt: "What jPipe is, the three tools it ships, and where to start."
 header:
   teaser: /assets/images/covers/setup.jpg
