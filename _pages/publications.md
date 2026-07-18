@@ -50,10 +50,8 @@ header:
 
 ### Press Room
 
+- ["As FATES would have it: McMaster researcher working to make AI systems safer for users"](https://www.eng.mcmaster.ca/news/as-fates-would-have-it-mcmaster-researcher-working-to-make-ai-systemssafer-for-users/). McMaster Engineering Newsroom. 23/11/2025.
 - 🇫🇷 [_«Ça change la vie» : comment ces adeptes de l’intelligence artificielle l’utilisent au quotidien_](https://www.24heures.ca/2025/02/21/ca-change-la-vie--comment-ces-adeptes-de-lintelligence-artificielle-lutilisent-au-quotidien). 24heures.ca, 21/02/2025
-
 - 🇫🇷 [Le bogue de l'an 2000 (webserie)](https://video.telequebec.tv/details/52571-le-bogue-de-lan-2000-webserie). Episode 6 - _Anticiper le futur_. Télé-Québec, 2024
-
 - 🎥 [_Modelling justification diagrams using jPipe_](https://www.youtube.com/watch?v=NNl_-U2xUrM). MDENet Research Demonstration, 06/06/2024.
-
 - 🎙️ [_Code et Données Personelles_](https://open.spotify.com/episode/5kjdPMoNxDHLHg4EUNbPwK?si=zJs6kzh8Qxe60zY4YkYylw). Marie-Jean Meurs & Sébastien Mosser. Electro Monkey Podcast (🇫🇷), April 27th, 2021.
