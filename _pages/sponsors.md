@@ -10,14 +10,17 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 
 active_projects:
+  - image_path: /assets/images/sponsors/projects/safety-non-critical.jpg
+    title: "Safety for Non-Critical Systems (2026 - 2031)"
+    excerpt: "<p class=\"text-justify\">This project pioneers research into the safety of everyday, non-safety-critical software. As AI becomes increasingly integrated into sensitive areas like mental health and personal decision-making, failures in these everyday applications can have serious real-world consequences. To address this growing risk, the research adapts proven safety engineering principles into practical, developer-friendly methods, empowering software teams to systematically design, assess, and demonstrate safety in applications that have traditionally fallen outside formal safety frameworks. It is funded by the NSERC Dicsovery program.<br/><br/>PI: Dr. Sébastien Mosser</p>"
   - image_path: /assets/images/sponsors/projects/empowered.jpg
-    title: "EMPOWrD (2024 - 2028)"
+    title: "EMPOWrD <br/> (2024 - 2028)"
     excerpt: "<p class=\"text-justify\">This project aims to improve mobility and wellness among older Canadians by utilizing effective design to bridge divides in access, use and embracement of technology. It is funded by McMaster Institute for Research on Aging (MIRA).<br/><br/>PI: Dr. Milena Head</p>"
     url: "https://mira.mcmaster.ca/projects/empowrd-enhancing-mobility-and-participation-for-older-adult-wellness-through-digital-inclusion/"
     btn_label: "Read More"
     btn_class: "btn--primary btn--small"
   - image_path: /assets/images/sponsors/projects/fates.jpg
-    title: "FATES-MLOps (2024 - 2028)"
+    title: "FATES-MLOps <br/>(2024 - 2028)"
     excerpt: "<p class=\"text-justify\">This project target the following research challenge: \"Can we systematically and progressively include justifications related to the FATES (<i>Fairness, Accountability, Transparency, Ethics, and Security</i>) building and operating of a software system integrating Machine Learning?\". It is funded by the Agence Nationnale de la Recherche Scientifique (ANR, France) and NSERC (Canada).<br/><br/>PI: Dr. Jean-Michel Bruel (ANR), Dr. Sébastien Mosser (NSERC)</p>"
     url: "https://fates-site-80675c.gitlab.io/main/1.0/index.html"
     btn_label: "Read More"
@@ -27,10 +30,10 @@ old_projects:
     title: "Large Scale Composition (2020 - 2026)"
     excerpt: "<p class=\"text-justify\">The long-term objective of this research program supported by NSERC is to investigate and to measure how software developers design large-scale systems by identifying the core elements that support developers designing and implementing such systems.<br/><br/>PI: Dr. Sébastien Mosser</p>"
   - image_path: /assets/images/sponsors/projects/devops_sdn.jpg
-    title: "DevOps for SDN (2022 - 2025)"
+    title: "DevOps for SDN <br/> (2022 - 2025)"
     excerpt: "<p class=\"text-justify\">The project develops an Software-Defined Network (SDN) DevOps framework, i.e., a unified, comprehensive set of notations, techniques, guidelines, case studies, and tools to capture, implement, and continuously measure and improve the lifecycle of SDN software. It is funded by TELUS and Kallom industrial partners, as well as NSERC and MITACS.<br/><br/>PI: Dr. Francis Bordeleau</p>"
   - image_path: /assets/images/sponsors/projects/reso_t.png
-    title: "RÉSO-T (2022 - 2025)"
+    title: "RÉSO-T <br/>(2022 - 2025)"
     excerpt: "<p class=\"text-justify\">Supported by Quebec's FRQNT, this project aims to define an innovative and culturally sensitive approach to integrating automatic natural language processing into suicide prevention tools. <br/><br/>PI: Dr. Marie-Jean Meurs and Dr. Cecile Bardon </p>"
     url: "https://frq.gouv.qc.ca/en/programme-inno-plus-de-760-000-offerts-pour-favoriser-la-rencontre-entre-innovation-sociale-et-innovation-technologique/"
     btn_label: "Read More"
