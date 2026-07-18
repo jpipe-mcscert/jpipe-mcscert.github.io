@@ -77,12 +77,16 @@ tutorials:
     children:
       - title: "Install the Compiler"
         url: /tutorials/install/compiler/
-      - title: "Language features"
-        url: /tutorials/language/
+      - title: "Sub-conclusions"
+        url: /tutorials/sub-conclusions/
       - title: "Using Patterns"
         url: /tutorials/patterns/
-      - title: "Composition Operators"
-        url: /tutorials/operators/
+      - title: "Splitting models"
+        url: /tutorials/modularity/
+      - title: "Assemble"
+        url: /tutorials/assemble/
+      - title: "Refine"
+        url: /tutorials/refine/
 
   - title: The Runner
     children:

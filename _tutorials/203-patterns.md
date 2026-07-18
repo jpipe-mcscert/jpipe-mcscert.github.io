@@ -15,11 +15,11 @@ header:
 
 The same argument *shape* shows up again and again: "the artefact is ready **because** all its
 quality gates pass, **as evidenced by** …". Rather than retyping that skeleton for every release,
-every component, every team — you can capture it once as a **template** and specialise it wherever
+every component, and every team, you can capture it once as a **template** and specialise it wherever
 you need it.
 
 This tutorial assumes you are comfortable with the basics from
-[jPipe 101](/tutorials/jpipe101/) and [Language features](/tutorials/language/).
+[jPipe 101](/tutorials/jpipe101/) and [sub-conclusions](/tutorials/sub-conclusions/).
 {: .notice--info}
 
 # A template is an argument with a hole in it
@@ -46,7 +46,7 @@ by a strategy, backed by evidence) while leaving the *content* of the evidence o
 <img src="/assets/images/tutorials/203_patterns/template.svg" alt="The QualityGate template with an abstract-support slot"/>
 </div>
 
-`@support` is only valid inside a `template` — a plain `justification` has no holes.
+`@support` is only valid inside a `template`; a plain `justification` has no holes.
 {: .notice--warning}
 
 # Specialising a template with `implements`
@@ -63,7 +63,7 @@ justification release implements QualityGate {
 }
 ```
 
-The result is a complete, ordinary justification — the template's conclusion and strategy, now backed
+The result is a complete, ordinary justification: the template's conclusion and strategy, now backed
 by concrete evidence:
 
 <div align="center">
@@ -74,16 +74,16 @@ by concrete evidence:
 
 - **Consistency.** Every "readiness" argument in your project has the same, reviewable structure.
 - **Reuse.** Keep `QualityGate` in its own file and `load` it (see
-  [Language features](/tutorials/language/#splitting-a-model-across-files)); a `frontend`, a
+  [splitting models across files](/tutorials/modularity/)); a `frontend`, a
   `backend`, and a `docs` justification can each `implements gates:QualityGate` with their own
   evidence.
-- **Intent.** A template documents *how you expect claims of this kind to be argued* — reviewers can
+- **Intent.** A template documents *how you expect claims of this kind to be argued*, so reviewers can
   check that an argument follows the agreed schema.
 
 # Where to next?
 
-- **[Composition operators](/tutorials/operators/)** — combine several finished justifications into
-  a bigger one with `assemble` and `refine`.
+- **[assemble](/tutorials/assemble/)** and **[refine](/tutorials/refine/)** combine several finished
+  justifications into a bigger one.
 
 For patterns used in anger, browse the
 [jpipe-examples](https://github.com/jpipe-mcscert/jpipe-examples) repository.

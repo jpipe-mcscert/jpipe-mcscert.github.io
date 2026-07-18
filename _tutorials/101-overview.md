@@ -52,9 +52,10 @@ You do not need these to get started, and you can always add them later. Reach f
 outgrow the editor:
 
 - **[The Compiler](/tutorials/install/compiler/)** installs the `jpipe` CLI (Homebrew, APT, a JAR,
-  or from source) for scripting and automation. It is the home of the [language
-  reference](/tutorials/language/), [patterns](/tutorials/patterns/), and [composition
-  operators](/tutorials/operators/).
+  or from source) for scripting and automation. It is the home of the language features
+  ([sub-conclusions](/tutorials/sub-conclusions/), [splitting models](/tutorials/modularity/)),
+  [patterns](/tutorials/patterns/), and the composition operators
+  ([assemble](/tutorials/assemble/), [refine](/tutorials/refine/)).
 - **[The Runner](/tutorials/install/runner/)** installs `jpipe-runner` (Homebrew, APT, or pip) to
   make justifications executable, all the way to [CI/CD integration](/tutorials/cicd/).
 

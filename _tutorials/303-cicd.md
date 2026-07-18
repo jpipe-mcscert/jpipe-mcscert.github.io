@@ -109,8 +109,8 @@ Two useful patterns:
 
 # Where to next?
 
-- Make the argument itself more reusable with **[Patterns](/tutorials/patterns/)** and
-  **[Composition operators](/tutorials/operators/)**.
+- Make the argument itself more reusable with **[Patterns](/tutorials/patterns/)** and the
+  composition operators (**[assemble](/tutorials/assemble/)**, **[refine](/tutorials/refine/)**).
 
 Full action reference:
 [jpipe-runner/docs/ACTION.md](https://github.com/jpipe-mcscert/jpipe-runner/blob/main/docs/ACTION.md).
