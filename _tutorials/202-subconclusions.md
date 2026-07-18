@@ -29,59 +29,75 @@ A **sub-conclusion** is an intermediate claim: it is *concluded* by a strategy b
 *supports* a strategy above it. It lets you build the argument in layers.
 
 ```jpipe
-justification release {
-  conclusion c is "Version 2.0 is ready to ship"
+justification readiness {
+  conclusion ready is "Version 2.0 is ready to ship"
 
-  strategy s is "All release gates pass"
-  s supports c
+  strategy gates is "All release gates pass"
+  gates supports ready
 
   // "The code is tested": an intermediate claim with its own argument
   sub-conclusion tested is "The code is tested"
-  strategy ts is "The test suite passes with high coverage"
-  ts supports tested
-  evidence te is "The test suite passes"
-  te supports ts
-  evidence tc is "Coverage is above 80%"
-  tc supports ts
-  tested supports s
+  strategy testing is "The test suite passes with high coverage"
+  testing supports tested
+  evidence suite is "The test suite passes"
+  suite supports testing
+  evidence coverage is "Coverage is above 80%"
+  coverage supports testing
+  tested supports gates
 
   // "The documentation is updated": another intermediate claim
   sub-conclusion documented is "The documentation is updated"
-  strategy ds is "The changelog and API docs are current"
-  ds supports documented
-  evidence de is "The changelog is up to date"
-  de supports ds
-  documented supports s
+  strategy docs is "The changelog and API docs are current"
+  docs supports documented
+  evidence changelog is "The changelog is up to date"
+  changelog supports docs
+  documented supports gates
 }
 ```
 
-The rules for support edges are worth internalising:
+Notice the ids (`ready`, `gates`, `tested`, `testing`, …): unlike the terse `c`/`s`/`e1` of
+[jPipe 101](/tutorials/jpipe101/), meaningful ids make the `supports` edges read almost like
+sentences and keep a growing model navigable.
+
+Open the [diagram preview](/tutorials/jpipe101/#step-2-preview-the-diagram) in the IDE and the
+layered structure is clear: the two sub-conclusions each carry their own sub-argument up to the top
+strategy.
+
+<div align="center">
+<img src="/assets/images/tutorials/202_subconclusions/subconclusions.svg" alt="A layered readiness justification using sub-conclusions"/>
+</div>
+
+From a terminal, the same export is one command:
+
+```
+jpipe process -i readiness.jd -m readiness -f SVG -o readiness.svg
+```
+
+# The shape of a valid argument
+
+Now that the models are growing, a few rules are worth making explicit. They are what keep a
+justification well-formed, and what give its diagram that layered shape.
+
+**Every justification has exactly one conclusion.** A `conclusion` is the single claim the whole
+argument exists to establish, so a justification always requires one, and never more than one. A
+model with no conclusion is incomplete; a model with two is really two arguments sharing a file.
+
+Everything else hangs beneath that conclusion through *support* edges, and only certain edges are
+allowed:
+
+- **Evidence** and **sub-conclusions** back **strategies**: a piece of `evidence` or a
+  `sub-conclusion` can only support a `strategy`, never a conclusion directly.
+- **Strategies** back **claims**: a `strategy` supports either the top `conclusion` or a
+  `sub-conclusion`.
+
+Put together, every path runs from a piece of evidence, up through one or more strategies and
+sub-conclusions, to the single conclusion at the top:
 
 | A… | can support a… |
 |----|----------------|
 | `evidence` | `strategy` |
 | `sub-conclusion` | `strategy` |
 | `strategy` | `conclusion` **or** `sub-conclusion` |
-
-Preview it (**jPipe: Open Diagram Preview**, or `jpipe process -i release.jd -m release -f SVG -o release.svg`)
-and the layered structure is clear: the two sub-conclusions each carry their own sub-argument up to
-the top strategy.
-
-<div align="center">
-<img src="/assets/images/tutorials/202_subconclusions/subconclusions.svg" alt="A layered release justification using sub-conclusions"/>
-</div>
-
-# Comments and layout
-
-Whitespace is insignificant, and comments help you narrate the argument. Both C-style forms are
-supported:
-
-```jpipe
-// a single-line comment
-
-/* a multi-line
-   comment */
-```
 
 # Where to next?
 
