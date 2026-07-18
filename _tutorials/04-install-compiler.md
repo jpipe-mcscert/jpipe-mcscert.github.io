@@ -13,14 +13,17 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
 
-# Overview
-
 The **jPipe compiler** is the `jpipe` command-line tool: it parses `.jd` files, validates them, and
-exports diagrams. This page covers installing it as a standalone CLI.
+exports diagrams. Installing it as a standalone CLI lets you **script and automate** jPipe tasks
+from a terminal, a build script, or a CI server.
 
-Most people don't need this — the [jPipe IDE](/tutorials/install/ide/) can download and run the
-compiler for you (*managed mode*). Install the CLI when you want to compile from a terminal, a build
-script, or a CI server.
+Installing with a **package manager** (Homebrew or APT, below) is the smoothest option: it pulls in
+the correct dependencies (Java and Graphviz) for you. The manual JAR route works too, but you
+install those prerequisites yourself.
+
+Once the CLI is on your machine, we recommend switching the IDE to its **`cli`** execution mode, so
+the editor and your terminal always run the exact same compiler version (see
+[Install the IDE](/tutorials/install/ide/#other-execution-modes)).
 {: .notice--info}
 
 # 🍎 macOS (Homebrew)
@@ -32,10 +35,12 @@ $ brew tap jpipe-mcscert/mcscert
 $ brew install jpipe
 ```
 
-# 🐧 Linux & Windows (WSL) — APT
+# 🐧 Linux & Windows (WSL): APT
 
-We support Ubuntu LTS releases (22.04 Jammy, 24.04 Noble) and the latest standard releases. Add the
-McSCert Personal Package Archive (PPA):
+We build packages for the Ubuntu releases in active support, following our
+[release-target policy](https://www.jpipe.org/jpipe-compiler/adr/0023-ubuntu-release-target-policy/):
+every LTS from **24.04 (Noble)** onward while it stays in standard support, plus any interim release
+still inside its 9-month support window. Add the McSCert Personal Package Archive (PPA):
 
 ```
 $ sudo add-apt-repository ppa:mcscert/ppa
@@ -45,26 +50,27 @@ $ sudo apt install jpipe
 
 **Troubleshooting**
 
-- *`add-apt-repository: command not found`* — install the prerequisites:
+- If you see *`add-apt-repository: command not found`*, install the prerequisites:
   ```
   $ sudo apt update
   $ sudo apt install software-properties-common
   ```
-- *`Depends: openjdk-25-jre but it is not installable`* — your distribution doesn't ship Java 25 by
-  default. Add the OpenJDK 25 PPA to satisfy the requirement.
+- If you see *`Depends: openjdk-25-jre but it is not installable`*, your distribution doesn't ship
+  Java 25 by default; add the OpenJDK 25 PPA to satisfy the requirement.
 
 # ☕️ Manual installation (JAR)
 
 Prefer not to use a package manager? Run jPipe as a JAR.
 
 **Prerequisites** (both on your `$PATH`):
-- Java 25 (LTS) — [https://www.java.com/en/download/](https://www.java.com/en/download/)
-- Graphviz — [https://www.graphviz.org/download/](https://www.graphviz.org/download/)
+- Java 25 (LTS): [https://www.java.com/en/download/](https://www.java.com/en/download/)
+- Graphviz: [https://www.graphviz.org/download/](https://www.graphviz.org/download/)
 
 ### From an official release
 
 1. Open the [jPipe Compiler releases page](https://github.com/jpipe-mcscert/jpipe-compiler/releases).
 2. Download `jpipe-cli-<VERSION>.jar` from the **Assets** of the latest release.
+
    ![](/assets/images/tutorials/04_install_compiler/release.png)
 3. Move it somewhere on your machine (e.g. `~/bin`).
 4. Add an alias to your shell profile (`.zshrc` or `.bashrc`):
@@ -104,6 +110,6 @@ Checking external tools:
 # Next steps
 
 - **[Write your first justification → jPipe 101](/tutorials/jpipe101/)**
-- Point the IDE at this CLI by setting its execution mode to `path` — see
-  [Install the IDE](/tutorials/install/ide/#other-execution-modes).
+- Point the IDE at this CLI by setting its execution mode to `cli` (see
+  [Install the IDE](/tutorials/install/ide/#other-execution-modes)).
 - **[Install the Runner](/tutorials/install/runner/)** to make justifications executable.
