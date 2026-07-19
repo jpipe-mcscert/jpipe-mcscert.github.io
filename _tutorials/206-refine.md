@@ -13,71 +13,104 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
 
-`refine` is one of jPipe's two composition operators (the other is
-[`assemble`](/tutorials/assemble/)). Where `assemble` joins independent arguments side by side,
-`refine` drills **down**: it expands a single node of one argument into a whole sub-argument.
+`refine` is jPipe's other composition operator (the first is [`assemble`](/tutorials/assemble/)).
+Where `assemble` joins finished arguments side by side, `refine` drills **down**: it takes a single
+node you had been treating as a black box and replaces it with a whole sub-argument. It is how an
+argument grows *incrementally*, one node at a time deepening from "trust me" into "here is why".
 
 This tutorial assumes [jPipe 101](/tutorials/jpipe101/) and
-[splitting models with `load`](/tutorials/modularity/).
+[sub-conclusions](/tutorials/sub-conclusions/).
 {: .notice--info}
 
-# When to refine
+# A first draft
 
-Sometimes a single piece of evidence is really a claim that deserves its own argument. Rather than
-inflating the parent model, you argue that claim in a separate model and graft it on. `refine` does
-the grafting, replacing a chosen element with a second model's argument.
-
-# Calling `refine`
-
-Like every operator, `refine` is called in place of a model body:
+Here is an early version of the release argument. The documentation side is already argued in full,
+but testing is still just asserted: a lone piece of evidence, "The test suite passes", stands in for
+the whole idea that the code is tested.
 
 ```jpipe
-justification <name> is refine(<base>, <detail>) {
-  hook: "<id>"
+justification draft {
+  conclusion ready is "Version 2.0 is ready to ship"
+  strategy gates is "All release gates pass"
+  gates supports ready
+
+  evidence tests is "The test suite passes"
+  tests supports gates
+
+  sub-conclusion documented is "The documentation is updated"
+  strategy docs is "The changelog and API docs are current"
+  docs supports documented
+  evidence changelog is "The changelog is up to date"
+  changelog supports docs
+  documented supports gates
 }
 ```
-
-`base` is the argument to deepen, `detail` is the model grafted in, and the **`hook`** key names the
-element of `base` to expand. Start from a base argument whose evidence "The test suite passes" you
-want to justify further, and a detail model that argues exactly that claim:
-
-```jpipe
-justification base {
-  conclusion c is "Version 2.0 is ready to ship"
-  strategy s is "All release gates pass"
-  s supports c
-  evidence e is "The test suite passes"
-  e supports s
-}
-
-justification detail {
-  conclusion dc is "The test suite passes"
-  strategy ds is "Unit and integration suites are green"
-  ds supports dc
-  evidence de is "CI reported 0 failures"
-  de supports ds
-}
-
-justification refined is refine(base, detail) {
-  hook: "e"     // the element in `base` to expand
-}
-```
-
-The `hook` element in `base` is replaced by `detail`'s argument, deepening the tree:
 
 <div align="center">
-<img src="/assets/images/tutorials/206_refine/refined.svg" alt="The refined justification"/>
+<img src="/assets/images/tutorials/206_refine/draft.svg" alt="The draft argument, with testing as a single black-box evidence"/>
 </div>
 
-For the graft to read as one continuous argument, `detail`'s conclusion should match the claim made
-by the `hook` element. As with `assemble`, the source models usually live in their own files, so you
-will [`load`](/tutorials/modularity/) them first.
+A reviewer could fairly push back on that `tests` node: a passing suite is *some* reason to believe
+the code is tested, but the draft never says how thoroughly. That claim deserves its own argument.
+
+# Refining a node
+
+Write that argument as a separate justification. Its conclusion is the claim we want to make in full,
+"The code is tested", and beneath it sits the real reasoning:
+
+```jpipe
+justification tested {
+  conclusion tested is "The code is tested"
+  strategy testing is "The test suite passes with high coverage"
+  testing supports tested
+  evidence suite is "The test suite passes"
+  suite supports testing
+  evidence coverage is "Coverage is above 80%"
+  coverage supports testing
+}
+```
+
+<div align="center">
+<img src="/assets/images/tutorials/206_refine/tested.svg" alt="The standalone argument that the code is tested" style="max-height:280px"/>
+</div>
+
+`refine` grafts it onto the draft. It takes two arguments, the **base** to deepen (`draft`) and the
+**detail** to graft in (`tested`), plus a **`hook`**:
+
+```jpipe
+justification readiness is refine(draft, tested) {
+  hook: "tests"
+}
+```
+
+The `hook` is an element **id from the first argument**, the base. Here `"tests"` is the id of the
+`evidence tests` declared in `draft`; that is the node `refine` will replace with the `tested`
+argument. Pick the wrong id, or one that lives in the detail instead of the base, and there is nothing
+to graft onto.
+
+The black-box `tests` evidence is gone; in its place, the whole `tested` argument now hangs under the
+release strategy. The passing suite has not disappeared, it has moved down to become one of the two
+facts that *support* the richer claim:
+
+<div align="center">
+<img src="/assets/images/tutorials/206_refine/refined.svg" alt="The readiness argument after refining the testing node"/>
+</div>
+
+# Deepening without disruption
+
+The point of `refine` is that you did not touch the rest of the argument to grow this one branch. The
+conclusion, the release strategy, and the whole documentation side are exactly as they were; only the
+node under scrutiny got deeper. That lets an assurance case mature the way real review works, one
+questioned claim at a time, turning black boxes into arguments as the questions arrive, without ever
+rewriting what already holds.
 
 # Where to next?
 
-- **[assemble](/tutorials/assemble/)** composes independent arguments side by side.
-- **[Templates](/tutorials/templates/)** capture a reusable argument skeleton you instantiate with `implements`.
-- **[Make it executable](/tutorials/runner/)** binds each piece of evidence to a real check.
+Its sibling operator, **[`assemble`](/tutorials/assemble/)**, grows an argument in breadth instead of
+depth, joining independent justifications side by side. When a branch recurs across arguments,
+**[templates](/tutorials/templates/)** capture its shape for reuse. And once the argument says what
+you mean, **[make it executable](/tutorials/runner/)** so every piece of evidence is backed by a real
+check.
 
 For larger compositions in practice, see the
 [empowrd example](https://github.com/jpipe-mcscert/jpipe-examples/tree/main/empowrd).
