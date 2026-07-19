@@ -96,6 +96,8 @@ tutorials:
         url: /tutorials/runner/
       - title: "CI/CD (GitHub Actions)"
         url: /tutorials/cicd/
+      - title: "Pull Request Integration"
+        url: /tutorials/pull-requests/
 
   # The IDE (advanced usage) — 4xx tutorials, none yet.
   - title: The IDE

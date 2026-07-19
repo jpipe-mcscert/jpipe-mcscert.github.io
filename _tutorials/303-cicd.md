@@ -24,8 +24,7 @@ justification is re-validated whenever you ask, and a drifted claim surfaces as 
 of a silent lie.
 
 This builds on the [Runner tutorial](/tutorials/runner/): commit its compiled model
-(`run/release.jd.json`) and step library (`run/release_lib.py`) to the repository, here under a
-`release-example/` project folder.
+(`run/release.jd.json`) and step library (`run/release_lib.py`) to the repository.
 {: .notice--info}
 
 # The workflow
@@ -33,8 +32,8 @@ This builds on the [Runner tutorial](/tutorials/runner/): commit its compiled mo
 Create `.github/workflows/jpipe.yml`. Any regular GitHub Actions trigger works here, a `push`, a
 `pull_request`, a schedule, so the justification can be re-validated on whatever event matters to you
 (we wire those up [at the end](#from-demo-to-guardrail)). For this demonstration, though, we trigger
-it **by hand** with `workflow_dispatch` and expose one input, the version the changelog will announce,
-so you can watch the argument hold and then drift on command:
+it **by hand** with `workflow_dispatch`. One input, the version the changelog announces, stands in for
+the state of your changelog, so you can reproduce a stale one and then fix it:
 
 {% raw %}
 ```yaml
@@ -44,22 +43,17 @@ on:
   workflow_dispatch:
     inputs:
       changelog_version:
-        description: "Version the changelog will announce (try 2.0, then 1.9)"
-        default: "2.0"
-
-permissions:
-  contents: write        # push the generated diagram to a branch
-  pull-requests: write   # comment on a pull request
+        description: "Version the changelog announces (1.9 is stale, 2.0 matches the release)"
+        default: "1.9"
 
 jobs:
   justify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Prepare the mock evidence
-        working-directory: release-example
         env:
           CHANGELOG_VERSION: ${{ inputs.changelog_version }}
         run: |
@@ -70,49 +64,66 @@ jobs:
       - name: Run the jPipe justification
         uses: jpipe-mcscert/jpipe-runner@v3.5.3
         with:
-          working_directory: release-example
           jd_file: "run/release.jd.json"
           library: |
             run/release_lib.py
-          embed_image: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 {% endraw %}
 
-The middle step is the demonstration's trick: it fabricates the same `mock/` evidence you used
-locally, but writes the changelog from the `changelog_version` input passed in as an environment
-variable. In a real project you would **delete this step**, since the changelog and test results
-already live in the repository, and let the action check them as they are. The final step installs the
-runner, executes your justification against the library, and (`embed_image: true`) commits the coloured
-diagram, posting it back as a comment when the run belongs to a pull request. Both steps run inside
-`release-example/` (the `working-directory` / `working_directory` keys), where the project's `run/`
-and `mock/` folders live, so every path in the workflow stays relative to it.
+The workflow's real work is its **last step**: it runs the jPipe action, which installs the runner,
+executes your justification against its step library, and re-checks every claim against the
+repository. If any claim fails, the job fails; either way, the coloured diagram is uploaded as a build
+artifact you can inspect. It reads the model and step library you committed (`jd_file` and
+`library`). The `github-token` is nothing you manage: GitHub fills
+{% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} in automatically on every run, and it is only there
+so the action can write that artifact back.
 
-# Run it: the argument holds
+Everything else exists **only for this demonstration**. The `workflow_dispatch` input lets you choose
+the version the changelog announces, and the middle step fabricates the `mock/` evidence from it,
+writing a `mock/CHANGELOG.md` and a `mock/tests.ok` marker. In a real
+project you would **delete that step**: the changelog and test results already live in the repository,
+and the action checks them as they are.
 
-Push the workflow, open the repository's **Actions** tab, choose *Justify the release*, and click
-**Run workflow**. Leave `changelog_version` at its default `2.0` and launch. The changelog the step
-writes names `2.0`, every gate passes, and the run is green:
+# A stale changelog fails the build
 
-<!-- CAPTURE-SS: The Actions "Run workflow" dispatch with changelog_version=2.0, and the resulting green run. -->
-**📸 Screenshot needed:** the manual run with `changelog_version` = `2.0`, passing (green).
-{: .notice--warning}
-![](/assets/images/tutorials/303_cicd/run-passing.png)
+Picture the everyday slip: you cut the `2.0` release and commit the code, but forget to update the
+changelog, so it still announces the previous version. Push the workflow, open the repository's
+**Actions** tab, choose *Justify the release*, click **Run workflow**, and launch it with
+`changelog_version` on its stale `1.9`. The changelog the step writes never mentions `2.0`, the claim
+that the release is ready is no longer backed by evidence, and the run finishes red:
 
-# ...until a decision drifts
+![The GitHub Actions run summary marked as a failure, with the justify job in red](/assets/images/tutorials/303_cicd/build_fail.png)
 
-Run it again, but set `changelog_version` to `1.9`, as if the release were cut while the changelog was
-never updated past the previous version. The step now writes a changelog that never mentions `2.0`, so
-*"the changelog is up to date"* fails, the strategy and conclusion above it are skipped, and the run
-goes red:
+GitHub marks the whole run a **Failure**: the `justify` job exits with code 1, and the coloured
+diagram is still uploaded as a build artifact. But the summary only tells you *that* the argument
+broke, not *which* claim.
 
-<!-- CAPTURE-SS: The manual run with changelog_version=1.9, failing (red), showing the changelog evidence failed. -->
-**📸 Screenshot needed:** the manual run with `changelog_version` = `1.9`, failing (red).
-{: .notice--warning}
-![](/assets/images/tutorials/303_cicd/run-failing.png)
+# Reading the failure
 
-That red check is decision drift caught in the act: nothing about the *argument* changed, only the
-world it describes, and the pipeline refused to let the stale claim slip through unnoticed.
+Click the failed `justify` job to open its logs. The runner prints the same report you saw locally,
+and it points straight at the broken claim: *"The changelog is up to date"* (`release:e2`) **failed**,
+so the strategy and the conclusion above it are **skipped**:
+
+![The job logs showing the changelog evidence failing and the nodes above it skipped](/assets/images/tutorials/303_cicd/error_log.png)
+
+The diagram saved with the run says the same thing at a glance, the failing evidence in red and
+everything that rested on it greyed out:
+
+<div align="center">
+<img src="/assets/images/tutorials/303_cicd/artefact_error.svg" alt="The failing justification diagram from the CI run: the changelog evidence red, the strategy and conclusion skipped"/>
+</div>
+
+# Fixing the drift
+
+The fix is exactly what the argument asked for: update the changelog to name the release you are
+shipping. Run the workflow again, this time with `changelog_version` set to `2.0`. The evidence holds,
+every gate passes, and the run goes green:
+
+![The GitHub Actions run summary marked as a success after fixing the changelog](/assets/images/tutorials/303_cicd/build_success.png)
+
+That round trip, a red build, one glance at the log, a one-line fix, then a green build, is the whole
+point: the pipeline turned a silent decision drift into a loud, actionable failure.
 
 # From demo to guardrail
 
@@ -126,20 +137,14 @@ on:
     branches: [main]
 ```
 
-Now every pull request re-validates the whole justification against the actual repository. With
-`embed_image: true` and `github-token`, the action commits the coloured diagram and posts it as a PR
-comment, so reviewers see the argument's live status inline:
-
-<!-- CAPTURE-SS: The pull-request comment containing the embedded, coloured justification diagram. -->
-**📸 Screenshot needed:** the PR comment with the embedded justification diagram.
-{: .notice--warning}
-![](/assets/images/tutorials/303_cicd/pr-comment.png)
-
-A failing claim turns the check red and blocks the merge: the very drift you triggered by hand, now
-caught automatically on every change.
+Now every push and pull request re-validates the whole justification against the actual repository. A
+drifted claim turns the check red, exactly the failure you triggered by hand, now caught automatically
+on every change.
 
 # Where to next?
 
+- **[Pull request integration](/tutorials/pull-requests/)** posts the coloured diagram right on the
+  pull request, so reviewers read the argument's live status where the change is discussed.
 - Make the argument itself more reusable with **[templates](/tutorials/templates/)** and the
   composition operators (**[assemble](/tutorials/assemble/)**, **[refine](/tutorials/refine/)**).
 
