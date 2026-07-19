@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: Install the jPipe Runner
+title: "Install the Runner (CLI)"
 permalink: /tutorials/install/runner/
 excerpt: "Install jpipe-runner, the execution environment for justifications."
 header:
@@ -13,41 +13,74 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
 
-# Overview
+The **jPipe Runner** is the `jpipe-runner` command-line tool: it binds each piece of evidence to a
+real check written in Python, runs those checks against a compiled justification, and renders a
+diagram **coloured by the result**. Installing it lets you **execute and verify** justifications from
+a terminal, a build script, or a CI server.
 
-The **jPipe Runner** (`jpipe-runner`) executes a justification: it binds each piece of evidence to a
-real check written in Python, runs them, and renders a diagram coloured by the result. It is the
-piece you use to verify justifications automatically — see the [Runner tutorial](/tutorials/runner/)
-and [CI/CD integration](/tutorials/cicd/).
+Installing with a **package manager** (Homebrew or APT, below) is the smoothest option: it pulls in
+the correct dependencies (Python and Graphviz) for you. The `pip` route works too, but you provide
+those prerequisites yourself.
 
-You only need the runner once you want your justification *checked*, not just drawn. If you are just
+You only need the runner once you want your justification *checked*, not just drawn. If you are only
 authoring models, the [IDE](/tutorials/install/ide/) is enough.
 {: .notice--info}
 
 # 🍎 macOS (Homebrew)
 
-If you have already tapped the McSCert repository (see the
-[compiler install](/tutorials/install/compiler/)):
+Tap the McSCert repository and install:
 
 ```
+$ brew tap jpipe-mcscert/mcscert
 $ brew install jpipe-runner
 ```
 
-# 🐧 Linux & Windows (WSL) — APT
+# 🐧 Linux & Windows (WSL): APT
 
-If you have already added McSCert's PPA:
+We build packages for the Ubuntu releases in active support, following our
+[release-target policy](https://www.jpipe.org/jpipe-compiler/adr/0023-ubuntu-release-target-policy/):
+every LTS from **24.04 (Noble)** onward while it stays in standard support, plus any interim release
+still inside its 9-month support window. Add the McSCert Personal Package Archive (PPA):
 
 ```
+$ sudo add-apt-repository ppa:mcscert/ppa
+$ sudo apt update
 $ sudo apt install jpipe-runner
 ```
 
-# 🐍 Any platform — pip
+**Troubleshooting**
+
+- If you see *`add-apt-repository: command not found`*, install the prerequisites:
+  ```
+  $ sudo apt update
+  $ sudo apt install software-properties-common
+  ```
+
+# 🐍 Manual installation (pip)
+
+Prefer not to use a package manager? The runner is a Python package, so install it with `pip`.
+
+**Prerequisites** (both on your `$PATH`):
+- Python 3.11 or newer: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+- Graphviz: [https://www.graphviz.org/download/](https://www.graphviz.org/download/)
+
+### From PyPI
 
 ```
 $ pip install jpipe-runner
 ```
 
-# Verify your installation
+### From source
+
+```
+$ git clone https://github.com/jpipe-mcscert/jpipe-runner.git
+$ cd jpipe-runner
+jpipe-runner $ pip install .
+```
+
+# 🩺 Verify your installation
+
+`jpipe-runner -h` prints its banner (with the installed version) and the usage summary:
 
 ```
 $ jpipe-runner -h
@@ -55,9 +88,22 @@ usage: jpipe-runner [-h] [--variable VARIABLE] [--library LIBRARY]
                     [--diagram PATTERN]
                     [--format {dot,gif,jpeg,jpg,pdf,png,svg}]
                     [--output-path PATH] [--dry-run] [--verbose]
-                    [--config-file CONFIG_FILE]
+                    [--config-file CONFIG_FILE] [--python-path PYTHON_PATH]
                     jd_file
+
+McMaster University - McSCert (c) 2023-... - Version 3.5.3
+    _ ____  _               ____
+   (_)  _ \(_)_ __   ___   |  _ \ _   _ _ __  _ __   ___ _ __
+   | | |_) | | '_ \ / _ \  | |_) | | | | '_ \| '_ \ / _ \ '__|
+   | |  __/| | |_) |  __/  |  _ <| |_| | | | | | | |  __/ |
+  _/ |_|   |_| .__/ \___|  |_| \_\\__,_|_| |_|_| |_|\___|_|
+ |__/        |_|
 ```
 
-You are ready to make a justification executable. Continue with the
-**[Runner tutorial →](/tutorials/runner/)**.
+# Next steps
+
+With the runner in place, the **[Runner tutorial](/tutorials/runner/)** walks you through binding a
+justification's evidence to real Python checks and reading the coloured result; from there,
+**[CI/CD integration](/tutorials/cicd/)** runs that check on every push. Since the runner executes
+the compiler's JSON output rather than the `.jd` source, you will also want the
+**[compiler](/tutorials/install/compiler/)** on hand to produce it.
