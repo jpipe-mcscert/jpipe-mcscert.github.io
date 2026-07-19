@@ -94,7 +94,7 @@ tutorials:
         url: /tutorials/install/runner/
       - title: "jPipe Runner"
         url: /tutorials/runner/
-      - title: "CI/CD Integration"
+      - title: "CI/CD (GitHub Actions)"
         url: /tutorials/cicd/
 
   # The IDE (advanced usage) — 4xx tutorials, none yet.
