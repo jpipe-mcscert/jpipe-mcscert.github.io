@@ -22,6 +22,9 @@ bundle exec jekyll build     # one-off build into _site/
 - **No table of contents in tutorials.** Do not set `toc: true` in `_tutorials/`
   front matter. Tutorial pages are kept short and self-contained, so a sidebar
   TOC adds clutter without value. (Other collections may still use it.)
+- **Tutorials use the wide layout.** Every `_tutorials/` page sets
+  `classes: wide` (alongside `layout: single`) so code blocks and diagrams have
+  room. Keep new tutorials consistent; do not ship a tutorial without it.
 - **Element ids in `.jd` examples: single words, no camelCase.** Prefer short,
   lowercase, single-word ids (`ready`, `gates`, `test`, `changelog`) over terse
   letters (`c`, `s`, `e1`) *and* over camelCase (`gatesPass`, `thoroughTesting`).
@@ -75,9 +78,10 @@ clearfix and tighten spacing.
 **To add a tutorial or doc:**
 
 1. Create the collection file (`_tutorials/NNN-name.md` or `_docs/name.md`) with
-   `layout: single`, a `permalink`, a `title`, an `excerpt` (shown on the card),
-   and a `header.teaser` image. Tutorial filenames use a **category-based 3-digit
-   prefix** (see below); pick the next free number in the category.
+   `layout: single` (tutorials also add `classes: wide`), a `permalink`, a
+   `title`, an `excerpt` (shown on the card), and a `header.teaser` image.
+   Tutorial filenames use a **category-based 3-digit prefix** (see below); pick
+   the next free number in the category.
 2. Add a matching entry under the right section in `_data/navigation.yml`, with
    a `url` equal to the file's `permalink`.
 
