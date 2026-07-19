@@ -15,90 +15,91 @@ header:
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
 
-Big justifications are best built from small ones. Instead of writing one giant model, you argue each
-part on its own and then **compose** the parts with an *operator*. jPipe ships two built-in
-operators: `assemble` (this page) and [`refine`](/tutorials/refine/).
+The [sub-conclusions](/tutorials/sub-conclusions/) and [templates](/tutorials/templates/) tutorials
+built the `readiness` argument **top-down**: start from the conclusion "Version 2.0 is ready to ship"
+and break it into the claims beneath it (a template even fixes that shape as a contract up front).
+`assemble` works the other way, **bottom-up**: argue each claim on its own, as an independent
+justification, then compose those finished pieces into the larger argument.
 
 This tutorial assumes [jPipe 101](/tutorials/jpipe101/) and
-[splitting models with `load`](/tutorials/modularity/).
+[sub-conclusions](/tutorials/sub-conclusions/).
 {: .notice--info}
 
-# The operator-call syntax
+# The building blocks
 
-A justification can be defined by *calling an operator* instead of listing a body. The form is:
+Take the two claims that `readiness` rested on, and this time argue each as a **standalone**
+justification, complete with its own conclusion:
 
 ```jpipe
-justification <name> is <operator>(<source>, <source>, …) {
-  key: "value"
-  …
+justification tested {
+  conclusion tested is "The code is tested"
+  strategy testing is "The test suite passes with high coverage"
+  testing supports tested
+  evidence suite is "The test suite passes"
+  suite supports testing
+  evidence coverage is "Coverage is above 80%"
+  coverage supports testing
+}
+
+justification documented {
+  conclusion documented is "The documentation is updated"
+  strategy docs is "The changelog and API docs are current"
+  docs supports documented
+  evidence changelog is "The changelog is up to date"
+  changelog supports docs
 }
 ```
 
-The parentheses list the source models being composed; the block gives the operator its
-configuration.
-
-# `assemble`: combine independent arguments
-
-Suppose your product ships in two parts, each argued separately:
-
-```jpipe
-justification frontend {
-  conclusion fc is "The frontend is ready"
-  strategy fs is "Frontend gates pass"
-  fs supports fc
-  evidence fe is "Frontend tests pass"
-  fe supports fs
-}
-
-justification backend {
-  conclusion bc is "The backend is ready"
-  strategy bs is "Backend gates pass"
-  bs supports bc
-  evidence be is "Backend tests pass"
-  be supports bs
-}
-```
+Each brick stands on its own two feet, provable and reviewable in isolation:
 
 <div align="center">
-<img src="/assets/images/tutorials/205_assemble/frontend.svg" alt="The frontend justification" style="max-height:260px"/>
+<img src="/assets/images/tutorials/205_assemble/tested.svg" alt="The tested justification" style="max-height:260px"/>
 &nbsp;&nbsp;
-<img src="/assets/images/tutorials/205_assemble/backend.svg" alt="The backend justification" style="max-height:260px"/>
+<img src="/assets/images/tutorials/205_assemble/documented.svg" alt="The documented justification" style="max-height:260px"/>
 </div>
 
-`assemble` gathers their conclusions under a single new conclusion and strategy. It requires two
-labels: one for the new top conclusion, one for the aggregating strategy:
+# Calling `assemble`
+
+A justification can be defined by *calling an operator* in place of a body, written
+`is <operator>(<sources>) { … }`. `assemble` takes the bricks' conclusions and gathers them under one
+new conclusion and strategy; you give it a label for each:
 
 ```jpipe
-justification product is assemble(frontend, backend) {
-  conclusionLabel: "The whole product is ready to ship"
-  strategyLabel: "Both components are ready"
+justification readiness is assemble(tested, documented) {
+  conclusionLabel: "Version 2.0 is ready to ship"
+  strategyLabel: "All release gates pass"
 }
 ```
 
-The two component arguments now hang under one roof:
+As your models grow, `tested` and `documented` would each move to their own file and be pulled in
+with [`load`](/tutorials/modularity/); here they share one file, so `assemble` can name them
+directly.
+
+The result is the very [same `readiness` argument](/tutorials/sub-conclusions/) you wrote top-down,
+reached from the bottom up. Notice how each brick's *conclusion* has become a **sub-conclusion** of the
+whole: "The code is tested" and "The documentation is updated" now sit beneath the new strategy
+instead of topping their own trees.
 
 <div align="center">
-<img src="/assets/images/tutorials/205_assemble/assembled.svg" alt="The assembled product justification"/>
+<img src="/assets/images/tutorials/205_assemble/assembled.svg" alt="The readiness justification assembled from its two parts"/>
 </div>
 
-Because the sources usually live in their own files, you will typically
-[`load`](/tutorials/modularity/) them first:
+# Two directions, one argument
 
-```jpipe
-load "frontend.jd"
-load "backend.jd"
-
-justification product is assemble(frontend, backend) {
-  conclusionLabel: "The whole product is ready to ship"
-  strategyLabel: "Both components are ready"
-}
-```
+Top-down and bottom-up are not rival techniques; they are two routes to the same tree, and which one
+fits depends on how the work is divided. When a single author decomposes a claim, sub-conclusions keep
+the whole thing in one place. When separate people or teams own separate concerns, `assemble` lets
+each prove its own brick in isolation and then hands you the combined argument for free: no brick
+rewritten, none of them aware of the others. As an assurance case grows, that independence is what
+keeps it reviewable.
 
 # Where to next?
 
-- **[refine](/tutorials/refine/)** expands a single node into a deeper argument.
-- **[Templates](/tutorials/templates/)** capture a reusable argument skeleton you instantiate with `implements`.
-- **[Make it executable](/tutorials/runner/)** binds each piece of evidence to a real check.
+The other operator, **[`refine`](/tutorials/refine/)**, composes in the opposite direction, expanding
+a single node into a deeper argument rather than joining arguments side by side. When several bricks
+share a shape, **[templates](/tutorials/templates/)** let you fix that shape once and reuse it. And
+once the argument reads the way you want, **[make it executable](/tutorials/runner/)** so every piece
+of evidence is backed by a real check.
 
 For larger compositions in practice, see the
 [empowrd example](https://github.com/jpipe-mcscert/jpipe-examples/tree/main/empowrd).
