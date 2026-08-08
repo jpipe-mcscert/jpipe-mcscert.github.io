@@ -20,7 +20,7 @@ header:
 ### Journal Papers
 
 - _[Capturing and Organizing Reusable Interaction Practices Using Justification and Feature Models](https://www.jot.fm/contents/issue_2026_03/a14.html)_. Sébastien Mosser, Shyam Ravichandran, Kalvin Thuan-Phong Khuu, Brian Detlor, Denise Y. Geiskkovitch, Anne-Marie Pinna-Déry, and P.J. White. In Journal of Object Technology (JOT), Volume 25, nº3. July 2026
-- [_Selling Shovels in the LLM Gold Rush: Why Software Engineering Research Risks Missing the Real Transformation_](https://www.jot.fm/contents/issue_2026_02/e1.html). Önder Babur, Sébastien Mosser, Alfonso Pierantonio. In Journal of Object Technology, Volume 25, no. 2 ( 2026), pp. 1-6.
+- [_Selling Shovels in the LLM Gold Rush: Why Software Engineering Research Risks Missing the Real Transformation_](https://www.jot.fm/contents/issue_2026_02/e1.html). Önder Babur, Sébastien Mosser, Alfonso Pierantonio. In Journal of Object Technology, Volume 25, no. 2 (2026), pp. 1-6.
 
 ### Conference Papers
 
@@ -38,7 +38,7 @@ header:
 ### Tutorials
 
 - _Modelling Justifications to Support and Operationalize Machine Learning Pipelines_. Sébastien Mosser, Kalvin Thuan-Phong Khuu. ACM/IEEE 29th International Conference on Model Driven Engineering Languages and Systems (MODELS). October 2026.
-- _Validating Requirements of Machine Learning Pipelines with Justification Models_. Sébastien Mosser, Kalvin Thuan-Phong Khuu. In 34th IEEE International Requirements Engineering Conference (RE), august 2026
+- _Validating Requirements of Machine Learning Pipelines with Justification Models_. Sébastien Mosser, Kalvin Thuan-Phong Khuu. In 34th IEEE International Requirements Engineering Conference (RE), August 2026
 - [Creating and Operationalizing Justification Models Using jPipe](http://hdl.handle.net/11375/31418). Sébastien Mosser, Nirmal Chaudhari, Cass Braun, Kai Sun. ACM/IEEE International Conference on Model Driven Engineering Languages and Systems Companion, October 2024.
 
 ### Thesis 
