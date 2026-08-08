@@ -18,9 +18,7 @@ without being told anything. In this tutorial you will look at *why* that worked
 do when it cannot: on a machine with no package manager, or in a project that has to be built with
 one specific compiler version.
 
-# The extension does not contain a compiler
-
-Start from that fact, because everything on this page follows from it.
+# ‼️ The extension does not contain a compiler ‼️ 
 
 The extension carries its own language server, which is what highlights your `.jd` files, validates
 them as you type, and answers completion, hover and go-to-definition. But the moment you ask for a
@@ -34,16 +32,15 @@ all.** By default the extension runs a compiler *you* installed, from a channel 
 Homebrew, an Ubuntu PPA, or Scoop, each of which you can inspect, pin, update and uninstall with the
 same tooling you use for everything else on that machine. Nothing arrives behind your back.
 
-That leaves the interesting case, the machine where you cannot install anything. The extension can
-fetch a compiler for you there, but downloading and running code someone else published is a
-decision, so the extension treats it as one: it happens only when you ask for it, by name.
-`managed` mode is that consent, made explicit. The
-[section below](#-managed-a-release-the-extension-fetches) covers what it does to keep it honest.
+That leaves the interesting case, the machine where you cannot install anything. There the extension
+can fetch a compiler for you, but only when you ask it to, by name: `managed` mode is that request,
+made explicit. The [section below](#-managed-a-release-the-extension-fetches) covers how it works.
 
 # One question, three answers
 
 Every time it renders, the extension has to answer one question: **where is the compiler?** The
-**execution mode** setting is where you answer it, and there are three possible answers:
+**Execution Mode** setting, at the top of the plugin settings page, is where you answer it, and
+there are three possible answers:
 
 - **`cli`**: *"it is already on this machine, and the system knows where."* The extension runs the
   `jpipe` command, letting your `PATH` resolve it, exactly as your terminal would.
@@ -60,21 +57,6 @@ machine. None of them installs the two things that compiler needs, **Java 25 or 
 preview fails for a missing `dot`, switching modes will not fix it. Installing with
 [a package manager](/tutorials/install/compiler/) is the one route that brings the runtime along.
 {: .notice--warning}
-
-# 🩺 Which mode am I in?
-
-You already know how to answer this: it is the same check you ran at the end of the IDE install.
-Open the Command Palette (`Ctrl+Shift+P` / `⇧⌘P`), run **jPipe: Check jPipe Installation**, and read
-the first line of the report. It names the mode that is active and the compiler that mode resolved
-to, which together tell you exactly what your previews are being drawn by.
-
-To change the answer, open the **jPipe settings**: click the gear icon on **jPipe Language
-(McSCert)** in the Extensions view and choose **Settings**, or press `Ctrl+,` / `⌘,` and search for
-*jPipe*. **Execution Mode** sits at the top, the path settings for each mode are underneath it, and
-the two links you will use in this tutorial, **Install from GitHub Release** and **Check jPipe
-installation**, sit between them.
-
-![](/assets/images/tutorials/401_execution_modes/settings.png)
 
 Take the tour of the three modes below in any order. Each one explains what it is for and the single
 setting that goes with it.
@@ -122,44 +104,22 @@ mode to leave once you go back to working *with* it.
 
 # 📦 `managed`: a release the extension fetches
 
-The other two modes assume you can put a compiler on the machine yourself. This one does not.
-Instead of asking you for a compiler, the extension goes and gets one: you pick a published release
-from a list, and it downloads that release into its own storage.
+The other two modes assume you can put a compiler on the machine yourself, and keep it current
+yourself. This one hands both jobs to the editor: you pick a published release from a list, the
+extension downloads it into its own storage, and from then on it watches for newer ones and offers
+them to you.
 
 That makes it the answer for a locked-down machine, where you can install a VS Code extension but
-not run a package manager, and nothing lands outside the extension's own folder.
-
-## What you are agreeing to
-
-Using this mode means asking a program to download an executable and then run it, so it is worth
-knowing exactly what the extension will and will not do on your behalf:
-
-- **It downloads nothing until you ask.** There is no fetch on install, none on startup, and none
-  the first time a preview fails. A download happens only when you run the install command and pick
-  a release from the list.
-- **It only talks to GitHub.** Requests are HTTPS-only and restricted to GitHub's own hosts, with a
-  hard limit on redirects, so a hijacked link cannot walk the download somewhere else. The releases
-  come from `jpipe-mcscert/jpipe-compiler`.
-- **A half-finished download is never run.** The JAR is written to a temporary file, checked against
-  the size GitHub reports for that asset, and only then moved into place under its real name. Its
-  SHA-256 is recorded in the jPipe output panel if you want to compare it against the release.
-- **It never swaps your compiler silently.** Updates are offered in a notification and applied only
-  when you accept, so the version you chose stays until you choose another.
-
-The one setting that changes any of this is the advanced **Repository** option
-(`jpipe.managedRepository`), which points the picker at a different GitHub repository. Pointing it
-at a fork means running that fork's code, so treat it as you would any other "run code from a
-stranger" switch: leave it alone unless you own the fork.
-{: .notice--info}
-
-But its real strength is that it turns the compiler into something you can **change your mind
-about**. Downloading a different release is a two-click operation, so you can move between versions
-as easily as you switch a branch.
+not a package manager, and nothing lands outside the extension's own folder. It is also what turns
+the compiler into something you can **change your mind about**: downloading a different release is a
+two-click operation, so you can move between versions as easily as you switch a branch.
 
 ## Picking a version
 
-1. Open the Command Palette and run **jPipe: Install Compiler from GitHub Release**, or click
-   **Install from GitHub Release** on the settings page.
+1. Click **Install from GitHub Release** on the settings page.
+
+   ![](/assets/images/tutorials/401_execution_modes/picker.png)
+
 2. Choose a release from the list.
 
    ![](/assets/images/tutorials/401_execution_modes/release-picker.png)
@@ -167,27 +127,30 @@ as easily as you switch a branch.
 3. There is no third step. Once the download succeeds, the extension switches **Execution Mode** to
    `managed` for you and starts previewing with what it just fetched.
 
-Run the same command whenever you want a different version. Releases you have already downloaded are
+Click the same link whenever you want a different version. Releases you have already downloaded are
 reused rather than fetched again, so switching back and forth is quick.
 
-Check the result the usual way: the report now names the release it is running.
+Check the result the usual way, with **Check jPipe installation**: the report now names the release
+it is running.
 
 ![](/assets/images/tutorials/401_execution_modes/diagnostic-managed.png)
 
 ## Being told when a new version ships
 
-A compiler you downloaded by hand is a compiler you have to remember to update. Managed mode is the
-only mode that keeps track for you: on startup it compares your release against the latest published
-one, and when yours is behind it offers the update in a notification. It **never** updates silently,
-so a version you deliberately chose stays put until you say otherwise.
+A compiler you installed by hand is a compiler you have to remember to update. This is the one mode
+that remembers for you: on startup it compares your release against the latest published one, and
+when yours is behind it offers the update in a notification. It **never** updates silently, so a
+version you deliberately chose stays put until you say otherwise.
 
-Three settings shape that behaviour, all under **jPipe: Managed Compiler**:
+Four settings shape that behaviour, all under **jPipe: Managed Compiler**:
 
 - **Check For Updates**, on by default. Turn it off to freeze your compiler entirely.
 - **Update Check Interval Hours**, 24 by default. The check runs at startup at most this often, so
   raising it makes the prompt rarer.
 - **Include Prereleases**, off by default. Turn it on to see prereleases in the version list, which
   is how you try a build before it is announced.
+- **Repository**, `jpipe-mcscert/jpipe-compiler` by default. It points the picker at another GitHub
+  repository, which means running that repository's code: leave it alone unless you own the fork.
 
 ## Pinning a project to a version
 
@@ -214,6 +177,7 @@ later costs nothing but the click.
 
 # Next steps
 
-- Run the check once more so you finish this tutorial knowing which compiler your editor is using.
+- Click **Check jPipe installation** once more so you finish this tutorial knowing which compiler
+  your editor is using.
 - **[Install the Runner](/tutorials/install/runner/)** to make your justifications executable, then
   run them in **[CI/CD](/tutorials/cicd/)**.

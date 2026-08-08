@@ -53,23 +53,22 @@ in [IDE execution modes](/tutorials/ide/execution-modes/).
 
 # Verify the setup
 
-1. Open the Command Palette (`Ctrl+Shift+P` / `⇧⌘P`) and run **jPipe: Check jPipe Installation**.
-   The same check is one click away on the jPipe settings page.
+1. Open the plugin settings page (e.g., from the Extensions panel)
 
-   **📸 Screenshot needed:** invoking the check, either the Command Palette filtered on *jPipe:
-   Check jPipe Installation* or the **Check jPipe installation** link on the settings page.
-   {: .notice--warning}
-   ![](/assets/images/tutorials/103_install_ide/check.png)
+2. The first entry, **Jpipe: Execution Mode**, carries a **Check jPipe installation** link. Click it.
 
-2. Read the report: it names the active execution mode, the compiler it resolved, and whether
-   Graphviz answered.
+   ![](/assets/images/tutorials/103_install_ide/checker.png)
 
-   **📸 Screenshot needed:** the result dialog in `cli` mode, showing the resolved compiler and
-   `dot (Graphviz): OK`.
-   {: .notice--warning}
-   ![](/assets/images/tutorials/103_install_ide/diagnostic.png)
+3. Read the report: it names the access method the extension used, the compiler version it resolved,
+   and whether Graphviz answered.
 
-🎉 That's it: you can now open a `.jd` file and use **jPipe: Open Diagram Preview**. 
+   ![](/assets/images/tutorials/103_install_ide/checker_result.png)
+
+   A healthy `cli` setup reports `Access method: cli`, a jPipe version, and `dot (Graphviz): OK`. If
+   the compiler cannot be found, the report says so instead, and
+   [IDE execution modes](/tutorials/ide/execution-modes/) explains how to point the extension at it.
+
+🎉 That's it: you can now open a `.jd` file and see its diagram in the live preview. 
 Head to [jPipe 101](/tutorials/jpipe101/) to write your first model.
 {: .notice--success}
 

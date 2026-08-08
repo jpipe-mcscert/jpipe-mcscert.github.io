@@ -80,12 +80,9 @@ All four steps are required:
 
 **Troubleshooting**
 
-- Windows packaging starts at **jPipe 2.3.0**. Asking for an older release
-  (`scoop install mcscert/jpipe@2.2.0`) fails on a download error: those versions publish no
-  Windows archive. Take them from the
-  [releases page](https://github.com/jpipe-mcscert/jpipe-compiler/releases) instead.
-- Running Windows Subsystem for Linux? The [APT route](#-linux-apt) above works unchanged inside
-  your WSL distribution, but the resulting `jpipe` is a Linux binary, visible to WSL only.
+- Comfortable with Windows Subsystem for Linux? The [APT route](#-linux-apt) above works unchanged
+  inside your WSL distribution, but the resulting `jpipe` is a Linux binary, visible to WSL only.
+  You will have to configure your IDE to connect to WSL to access the executable.
 
 # ☕️ Manual installation (JAR)
 
