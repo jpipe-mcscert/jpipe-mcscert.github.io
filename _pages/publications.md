@@ -19,7 +19,8 @@ header:
 
 ### Journal Papers
 
-- _[Capturing and Organizing Reusable Interaction Practices Using Justification and Feature Models](https://www.jot.fm/contents/issue_2026_03/a14.html)_. Sébastien Mosser, Shyam Ravichandran, Kalvin Thuan-Phong Khuu, Brian Detlor, Denise Y. Geiskkovitch, Anne-Marie Pinna-Déry, and P.J. White. In Journal of Object Technology (JOT), Volume 25, nº3 (special issue - European Conference on Modelling Foundations and Applications). July 2026
+- _[Capturing and Organizing Reusable Interaction Practices Using Justification and Feature Models](https://www.jot.fm/contents/issue_2026_03/a14.html)_. Sébastien Mosser, Shyam Ravichandran, Kalvin Thuan-Phong Khuu, Brian Detlor, Denise Y. Geiskkovitch, Anne-Marie Pinna-Déry, and P.J. White. In Journal of Object Technology (JOT), Volume 25, nº3. July 2026
+- [_Selling Shovels in the LLM Gold Rush: Why Software Engineering Research Risks Missing the Real Transformation_](https://www.jot.fm/contents/issue_2026_02/e1.html). Önder Babur, Sébastien Mosser, Alfonso Pierantonio. In Journal of Object Technology, Volume 25, no. 2 ( 2026), pp. 1-6.
 
 ### Conference Papers
 
@@ -30,13 +31,15 @@ header:
 
 ### Workshop Papers
 
-- _Safety First! Modelling Requirements from GPT-5 System Card using Lightweight Safety Models_. Kalvin Thuan-Phong Khuu, Nicolas Lacroix, Mireille Blay-Fornarino, and Sébastien Mosser. In 16th International Model-Driven Requirements Engineering (MoDRE), co-located with IEEE RE 2026. Montreal, Canada. August 2026.
+- _When Safety Claims Fail Silently: A Modelling Approach to AI Assurance_. Kalvin Thuan-Phong Khuu. In ACM/IEEE 29th International Conference on Model Driven Engineering Languages and Systems (MODELS), Doctoral Symposium. October 2026.
+- [_Safety First! Modelling Requirements from GPT-5 System Card using Lightweight Safety Models_](https://hal.science/hal-05681913). Kalvin Thuan-Phong Khuu, Nicolas Lacroix, Mireille Blay-Fornarino, and Sébastien Mosser. In 16th International Model-Driven Requirements Engineering (MoDRE), co-located with IEEE RE 2026. Montreal, Canada. August 2026.
 - [_Incorporating FATES Principles in Continuous Development of ML-Integrated Systems: Importance of Requirements_](https://hal.science/hal-05393692v1). Jean-Michel Bruel, Tristan Gouaichault, Olivier Teste, Mireille Blay-Fornarino, Nicolas Lacroix, Frédéric Precioso, and Sébastien Mosser. In 1st International Workshop on Requirements Engineering for Accountable and Conscious Human-centered AI (REACH'AI), co-located with IEEE RE 2025. Valencia, Spain. September 2025.
 
 ### Tutorials
 
-- _Validating Requirements of Machine Learning Pipelines with Justification Models_. Sébastien Mosser, Kalvin Thuan-Phong Khuu. In 34th IEEE International Requirements Engineering Conference (RE), 2026
-- [Creating and Operationalizing Justification Models Using jPipe](http://hdl.handle.net/11375/31418). Sébastien Mosser, Nirmal Chaudhari, Cass Braun, Kai Sun. ACM/IEEE International Conference on Model Driven Engineering Languages and Systems Companion, 2024.
+- _Modelling Justifications to Support and Operationalize Machine Learning Pipelines_. Sébastien Mosser, Kalvin Thuan-Phong Khuu. ACM/IEEE 29th International Conference on Model Driven Engineering Languages and Systems (MODELS). October 2026.
+- _Validating Requirements of Machine Learning Pipelines with Justification Models_. Sébastien Mosser, Kalvin Thuan-Phong Khuu. In 34th IEEE International Requirements Engineering Conference (RE), august 2026
+- [Creating and Operationalizing Justification Models Using jPipe](http://hdl.handle.net/11375/31418). Sébastien Mosser, Nirmal Chaudhari, Cass Braun, Kai Sun. ACM/IEEE International Conference on Model Driven Engineering Languages and Systems Companion, October 2024.
 
 ### Thesis 
 
