@@ -68,6 +68,8 @@ tutorials:
     children:
       - title: "Overview"
         url: /tutorials/overview/
+      - title: "Install the Compiler"
+        url: /tutorials/install/compiler/
       - title: "Install the IDE"
         url: /tutorials/install/ide/
       - title: "jPipe 101"
@@ -75,8 +77,6 @@ tutorials:
 
   - title: The Language
     children:
-      - title: "Install the Compiler"
-        url: /tutorials/install/compiler/
       - title: "Sub-conclusions"
         url: /tutorials/sub-conclusions/
       - title: "Templates"
@@ -99,6 +99,8 @@ tutorials:
       - title: "Pull Request Integration"
         url: /tutorials/pull-requests/
 
-  # The IDE (advanced usage) — 4xx tutorials, none yet.
+  # The IDE (advanced usage): 4xx tutorials.
   - title: The IDE
-    children: []
+    children:
+      - title: "Execution Modes"
+        url: /tutorials/ide/execution-modes/

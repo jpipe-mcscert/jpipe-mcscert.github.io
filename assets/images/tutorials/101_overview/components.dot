@@ -1,62 +1,51 @@
 digraph ecosystem {
   rankdir=TB;
   bgcolor="transparent";
-  nodesep=0.6;
-  ranksep=0.6;
-  node [fontname="Helvetica,sans-Serif", fontsize=12, shape=box,
-        style="rounded,filled", penwidth=1.2, margin="0.24,0.18"];
-  edge [fontname="Helvetica,sans-Serif", fontsize=10, color="#555555"];
+  nodesep=0.8;
+  ranksep=0.8;
+  node [fontname="Helvetica,sans-Serif", fontsize=16, shape=box,
+        style="rounded,filled", penwidth=1.4, margin="0.40,0.26"];
+  edge [fontname="Helvetica,sans-Serif", fontsize=14, color="#555555"];
 
   // Tool boxes use HTML-table labels so line spacing (cellspacing/cellpadding)
-  // stays airy and even.
+  // stays airy and even. Every box keeps the same rows: the name, what you type
+  // (or what it is), one plain sentence saying what it does, and an amber aside.
+  // The asides used to be separate sticky-note nodes flanking the diagram; they
+  // cost so much width that the whole drawing had to be scaled down on the page,
+  // which made the text small. Keeping them inline keeps the canvas narrow.
 
-  // The star of the show: the IDE, the recommended entry point.
-  ide [fillcolor="#e0f2fe", color="#0284c7", penwidth=1.6, label=<
-    <table border="0" cellborder="0" cellspacing="4" cellpadding="3">
+  // The star of the show: the compiler, the entry point. One package-manager
+  // command, and it brings Java and Graphviz with it.
+  comp [fillcolor="#dcfce7", color="#16a34a", penwidth=2.2, label=<
+    <table border="0" cellborder="0" cellspacing="6" cellpadding="5">
       <tr><td><b>▶&#160;&#160;START HERE</b></td></tr>
-      <tr><td><b>jPipe IDE</b></td></tr>
-      <tr><td><font point-size="10">VS&#160;Code extension · managed mode</font></td></tr>
-      <tr><td><font point-size="10">author · live preview · export</font></td></tr>
+      <tr><td><font point-size="19"><b>jPipe Compiler</b></font></td></tr>
+      <tr><td><font point-size="16" face="Courier">jpipe</font></td></tr>
+      <tr><td><font point-size="16">Validates your model, and draws it</font></td></tr>
+      <tr><td><font point-size="15" color="#b45309">one command: brew · apt · scoop</font></td></tr>
     </table>>];
 
-  // The power-user tool: the compiler CLI.
-  comp [fillcolor="#dcfce7", color="#16a34a", label=<
-    <table border="0" cellborder="0" cellspacing="4" cellpadding="3">
-      <tr><td><b>jPipe Compiler</b></td></tr>
-      <tr><td><font point-size="10">the <font face="Courier">jpipe</font>&#160;CLI</font></td></tr>
-      <tr><td><font point-size="10">scripting · automation</font></td></tr>
+  // Where you write: the VS Code extension, on top of the compiler.
+  ide [fillcolor="#e0f2fe", color="#0284c7", label=<
+    <table border="0" cellborder="0" cellspacing="6" cellpadding="5">
+      <tr><td><font point-size="19"><b>jPipe IDE</b></font></td></tr>
+      <tr><td><font point-size="16">VS&#160;Code extension</font></td></tr>
+      <tr><td><font point-size="16">Where you write and preview</font></td></tr>
+      <tr><td><font point-size="15" color="#b45309">nothing to configure</font></td></tr>
     </table>>];
 
   // The runner: turns a justification into an executable check.
   runner [fillcolor="#fef9c3", color="#ca8a04", label=<
-    <table border="0" cellborder="0" cellspacing="4" cellpadding="3">
-      <tr><td><b>jPipe Runner</b></td></tr>
-      <tr><td><font point-size="10">the <font face="Courier">jpipe-runner</font>&#160;CLI</font></td></tr>
-      <tr><td><font point-size="10">executable checks in CI/CD</font></td></tr>
+    <table border="0" cellborder="0" cellspacing="6" cellpadding="5">
+      <tr><td><font point-size="19"><b>jPipe Runner</b></font></td></tr>
+      <tr><td><font point-size="16" face="Courier">jpipe-runner</font></td></tr>
+      <tr><td><font point-size="16">Turns the argument into a check</font></td></tr>
+      <tr><td><font point-size="15" color="#b45309">runs against real data, in CI</font></td></tr>
     </table>>];
 
-  // Sticky-note asides, one per tool, saying why you'd reach for it.
-  note_ide    [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
-               label=<Most people<br/>start here>];
-  note_comp   [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
-               label=<power-user<br/>mode>];
-  note_runner [shape=note, fillcolor="#fffbeb", color="#d97706", fontsize=10, penwidth=1.0,
-               label=<needed to run<br/>the justification>];
+  // Both downstream tools consume the compiler.
+  comp -> ide    [label="  author in VS Code  "];
+  comp -> runner [label="  execute in CI  "];
 
-  // Invisible fork so one edge label covers both branches.
-  fork [shape=point, width=0.03, color="#555555"];
-
-  ide -> fork [arrowhead=none, label="need a terminal or CI?"];
-  fork -> comp;
-  fork -> runner;
-
-  // Dashed tethers link each tool to its aside. Kept as flat edges within a
-  // shared rank so the notes sit beside their tools (outer sides).
-  { rank=same; note_ide; ide; }
-  ide -> note_ide [style=dashed, arrowhead=none, color="#d97706"];
-
-  { rank=same; note_comp; comp; runner; note_runner; }
-  note_comp -> comp [style=dashed, arrowhead=none, color="#d97706"];
-  comp -> runner [style=invis];
-  runner -> note_runner [style=dashed, arrowhead=none, color="#d97706"];
+  { rank=same; ide; runner; }
 }

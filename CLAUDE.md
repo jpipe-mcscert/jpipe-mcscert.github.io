@@ -102,6 +102,11 @@ must stay in reading order (and match the section order in the nav). Each
 tutorial also owns exactly one image folder
 `assets/images/tutorials/NNN_<name>/` sharing its number.
 
+Gaps in the sequence are fine and deliberate: ordering is lexicographic, not
+numeric, so a free number (currently `201`) costs nothing and is simply the
+next slot in that category. Never renumber existing pages to close a gap; every
+rename drags its image folder and every `![]()` pointing at it.
+
 ## Adding a team member
 
 Edit `_pages/team.md`. Members are YAML entries rendered via

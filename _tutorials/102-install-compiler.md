@@ -1,9 +1,9 @@
 ---
 layout: single
 classes: wide
-title: "Install the Compiler (CLI)"
+title: "Install the Compiler"
 permalink: /tutorials/install/compiler/
-excerpt: "Install the jpipe command-line compiler for terminals, scripts and CI."
+excerpt: "One package-manager command installs the jpipe compiler, with Java and Graphviz."
 header:
   teaser: /assets/images/covers/code.jpg
   overlay_color: "#000"
@@ -14,17 +14,13 @@ header:
 ---
 
 The **jPipe compiler** is the `jpipe` command-line tool: it parses `.jd` files, validates them, and
-exports diagrams. Installing it as a standalone CLI lets you **script and automate** jPipe tasks
-from a terminal, a build script, or a CI server.
+renders diagrams. **Install it first**, whether you plan to live in VS Code or in a terminal: it is
+what actually turns a model into a picture, and the editor and your CI both call it.
 
-Installing with a **package manager** (Homebrew, APT or Scoop, below) is the smoothest option: it
-pulls in the correct dependencies (Java and Graphviz) for you. The manual JAR route works too, but
-you install those prerequisites yourself.
-
-Once the CLI is on your machine, we recommend switching the IDE to its **`cli`** execution mode, so
-the editor and your terminal always run the exact same compiler version (see
-[Install the IDE](/tutorials/install/ide/#other-execution-modes)).
-{: .notice--info}
+Use a **package manager** (Homebrew, APT or Scoop, below). Each of our packages declares **Java 25**
+and **Graphviz** as dependencies and runs the compiler against the exact Java it installed, so one
+command leaves you with a toolchain that works. The manual JAR route works too, but you install and
+manage those prerequisites yourself.
 
 # 🍎 macOS (Homebrew)
 
@@ -105,7 +101,7 @@ Prefer not to use a package manager? Run jPipe as a JAR.
 1. Open the [jPipe Compiler releases page](https://github.com/jpipe-mcscert/jpipe-compiler/releases).
 2. Download `jpipe-cli-<VERSION>.jar` from the **Assets** of the latest release.
 
-   ![](/assets/images/tutorials/201_install_compiler/release.png)
+   ![](/assets/images/tutorials/102_install_compiler/release.png)
 3. Move it somewhere on your machine (e.g. `~/bin`).
 4. Add an alias to your shell profile (`.zshrc` or `.bashrc`):
    ```bash
@@ -143,7 +139,7 @@ Checking external tools:
 
 # Next steps
 
+- **[Install the IDE](/tutorials/install/ide/)**: the extension looks for a `jpipe` on your `PATH`
+  by default, so it picks up the compiler you just installed with nothing to configure.
 - **[Write your first justification → jPipe 101](/tutorials/jpipe101/)**
-- Point the IDE at this CLI by setting its execution mode to `cli` (see
-  [Install the IDE](/tutorials/install/ide/#other-execution-modes)).
 - **[Install the Runner](/tutorials/install/runner/)** to make justifications executable.

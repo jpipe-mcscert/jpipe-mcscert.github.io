@@ -18,7 +18,7 @@ Back in [jPipe 101](/tutorials/jpipe101/) you wrote the `release` argument: the 
 *"The test suite passes"* and *"The changelog is up to date"*.
 
 <div align="center">
-<img src="/assets/images/tutorials/103_jpipe101/release.svg" alt="The release-readiness justification from jPipe 101"/>
+<img src="/assets/images/tutorials/104_jpipe101/release.svg" alt="The release-readiness justification from jPipe 101"/>
 </div>
 
 As drawn, the argument only *asserts* those facts. To actually **validate** it, you would check them

@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: "Install the Runner (CLI)"
+title: "Install the Runner"
 permalink: /tutorials/install/runner/
 excerpt: "Install jpipe-runner, the execution environment for justifications."
 header:
@@ -20,10 +20,12 @@ a terminal, a build script, or a CI server.
 
 Installing with a **package manager** (Homebrew or APT, below) is the smoothest option: it pulls in
 the correct dependencies (Python and Graphviz) for you. The `pip` route works too, but you provide
-those prerequisites yourself.
+those prerequisites yourself. On **Windows** the runner has no native package yet, so `pip` is the
+route to take.
 
 You only need the runner once you want your justification *checked*, not just drawn. If you are only
-authoring models, the [IDE](/tutorials/install/ide/) is enough.
+authoring models, the [compiler](/tutorials/install/compiler/) and the
+[IDE](/tutorials/install/ide/) are enough.
 {: .notice--info}
 
 # 🍎 macOS (Homebrew)
@@ -35,7 +37,7 @@ $ brew tap jpipe-mcscert/mcscert
 $ brew install jpipe-runner
 ```
 
-# 🐧 Linux & Windows (WSL): APT
+# 🐧 Linux (APT)
 
 We build packages for the Ubuntu releases in active support, following our
 [release-target policy](https://www.jpipe.org/jpipe-compiler/adr/0023-ubuntu-release-target-policy/):
@@ -55,6 +57,22 @@ $ sudo apt install jpipe-runner
   $ sudo apt update
   $ sudo apt install software-properties-common
   ```
+
+# 🪟 Windows (pip)
+
+Unlike the compiler, the runner has **no Windows package** yet: install it from PyPI. Its two
+prerequisites come from [Scoop](https://scoop.sh), the same tool that installs the
+[compiler](/tutorials/install/compiler/#-windows-scoop):
+
+```
+PS> scoop install python
+PS> scoop install graphviz
+PS> pip install jpipe-runner
+```
+
+Scoop puts Python's `Scripts` directory on your `PATH`, so `jpipe-runner` is available in a fresh
+PowerShell prompt once `pip` finishes. Running Windows Subsystem for Linux instead? The
+[APT route](#-linux-apt) above works unchanged inside your WSL distribution.
 
 # 🐍 Manual installation (pip)
 
