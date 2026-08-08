@@ -5,10 +5,10 @@ title: "Install the Runner"
 permalink: /tutorials/install/runner/
 excerpt: "Install jpipe-runner, the execution environment for justifications."
 header:
-  teaser: /assets/images/covers/run.jpg
+  teaser: /assets/images/covers/race_start.jpg
   overlay_color: "#000"
   overlay_filter: "0.5"
-  overlay_image: /assets/images/covers/run.jpg
+  overlay_image: /assets/images/covers/race_start.jpg
   show_overlay_excerpt: false	
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---

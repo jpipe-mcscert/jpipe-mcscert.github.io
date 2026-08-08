@@ -5,10 +5,10 @@ title: "Splitting an argument across files"
 excerpt: "Use load to keep a reusable model in its own file and pull it into many arguments."
 permalink: /tutorials/modularity/
 header:
-  teaser: /assets/images/covers/tiles.jpg
+  teaser: /assets/images/covers/saw.jpg
   overlay_color: "#000"
   overlay_filter: "0.5"
-  overlay_image: /assets/images/covers/tiles.jpg
+  overlay_image: /assets/images/covers/saw.jpg
   show_overlay_excerpt: false	
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---

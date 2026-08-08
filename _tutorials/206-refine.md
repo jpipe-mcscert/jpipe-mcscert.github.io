@@ -5,10 +5,10 @@ title: "Composing with refine"
 excerpt: "Expand one node of a justification into a deeper argument with the refine operator."
 permalink: /tutorials/refine/
 header:
-  teaser: /assets/images/covers/books.png
+  teaser: /assets/images/covers/telescope.jpg
   overlay_color: "#000"
   overlay_filter: "0.5"
-  overlay_image: /assets/images/covers/books.png
+  overlay_image: /assets/images/covers/telescope.jpg
   show_overlay_excerpt: false	
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---

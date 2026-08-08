@@ -5,10 +5,10 @@ title: "IDE Execution Modes"
 permalink: /tutorials/ide/execution-modes/
 excerpt: "Teach the extension where to find a compiler: yours, a JAR, or one it downloads."
 header:
-  teaser: /assets/images/covers/blueprint.png
+  teaser: /assets/images/covers/toggle.jpg
   overlay_color: "#000"
   overlay_filter: "0.5"
-  overlay_image: /assets/images/covers/blueprint.png
+  overlay_image: /assets/images/covers/toggle.jpg
   show_overlay_excerpt: false	
   caption: "Photo credit: [**Pixabay**](https://pixabay.com/)"
 ---
