@@ -2,7 +2,7 @@
 layout: single
 title:  "New paper: Model Cards for Responsible AI (ICSE-NIER'26)"
 date:   2026-04-15 09:00:00 -0500
-categories: annoucements
+categories: publications
 ---
 
 [Kalvin Thuan-Phong Khuu](https://kalvinkhuu.github.io/) is in Rio de Janeiro this week for the 48th IEEE/ACM International Conference on Software Engineering (April 12th - 18th, 2026), presenting [_Model Cards for Responsible AI: Stop Carding, Start Modelling!_](https://hal.science/hal-05679580v1) in the New Ideas and Emerging Results track.

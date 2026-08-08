@@ -2,13 +2,13 @@
 layout: single
 title:  "Kalvin Khuu accepted at the MODELS'26 Doctoral Symposium"
 date:   2026-08-04 09:00:00 -0500
-categories: annoucements
+categories: publications
 ---
 
 Congrats to [Kalvin Thuan-Phong Khuu](https://kalvinkhuu.github.io/), whose paper _When Safety Claims Fail Silently: A Modelling Approach to AI Assurance_ is accepted at the Doctoral Symposium of the ACM/IEEE 29th International Conference on Model Driven Engineering Languages and Systems (MODELS), held in Málaga, Spain from October 4th to 9th, 2026.
 {: .text-justify }
 
-The Doctoral Symposium is where PhD students put a whole thesis programme in front of the modelling community, rather than a single result. Kalvin's pulls together the thread running through his year, [model cards as safety artifacts](/annoucements/2026/04/15/icse-nier-model-cards.html) and the [GPT-5 system card](https://hal.science/hal-05681913), and names the piece that does not exist yet: a guidance system on top of jPipe, where a practitioner queries a curated library of modelled safety claims and gets back guidance that fits their own system.
+The Doctoral Symposium is where PhD students put a whole thesis programme in front of the modelling community, rather than a single result. Kalvin's pulls together the thread running through his year, [model cards as safety artifacts](/publications/2026/04/15/icse-nier-model-cards.html) and the [GPT-5 system card](https://hal.science/hal-05681913), and names the piece that does not exist yet: a guidance system on top of jPipe, where a practitioner queries a curated library of modelled safety claims and gets back guidance that fits their own system.
 {: .text-justify }
 
 It also puts numbers on how much of the groundwork is already in place: 32 recurring safety patterns extracted from the model cards of major providers, and the composition operators that let those patterns be taken apart and reused.

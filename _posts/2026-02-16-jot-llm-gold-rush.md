@@ -2,7 +2,7 @@
 layout: single
 title:  "New editorial: Selling Shovels in the LLM Gold Rush (JOT)"
 date:   2026-02-16 09:00:00 -0500
-categories: annoucements
+categories: publications
 ---
 
 [_Selling Shovels in the LLM Gold Rush: Why Software Engineering Research Risks Missing the Real Transformation_](https://www.jot.fm/contents/issue_2026_02/e1.html) is out as an editorial in the _Journal of Object Technology_ (JOT), volume 25, number 2.

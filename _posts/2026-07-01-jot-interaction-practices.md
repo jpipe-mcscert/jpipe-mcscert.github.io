@@ -2,7 +2,7 @@
 layout: single
 title:  "New paper: Reusable interaction practices in JOT"
 date:   2026-07-01 09:00:00 -0500
-categories: annoucements
+categories: publications
 ---
 
 [_Capturing and Organizing Reusable Interaction Practices Using Justification and Feature Models_](https://www.jot.fm/contents/issue_2026_03/a14.html) was published in the _Journal of Object Technology_ (JOT), volume 25, number 3.

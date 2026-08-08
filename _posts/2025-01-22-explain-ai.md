@@ -2,7 +2,7 @@
 layout: single
 title:  "Upcoming talk: FATES properties in MLOps (Explain'AI 2025)"
 date:   2025-01-22 09:00:00 -0500
-categories: annoucements
+categories: publications
 ---
 
 🇫🇷 The FATES-MLOps consortium will present [_Prise en compte des propriétés FATES en MLOps: perspectives et ambitions_](http://hdl.handle.net/11375/31417) at **Explain'AI 2025**, on January 28th, 2025 at INSA Strasbourg. Now in its fourth edition, the workshop is backed by the CNRS GDR RADIA and hosted by the EGC conference.
