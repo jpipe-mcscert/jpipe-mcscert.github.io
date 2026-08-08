@@ -112,6 +112,36 @@ elements it declares to fill them.
 <img src="/assets/images/tutorials/204_load/ns_outline.png" alt="The IDE Outline panel showing the loaded quality.jd models under the templates namespace, separate from the current file's default namespace"/>
 </div>
 
+# One `load` for a folder of models
+
+Shared models tend to collect in a folder of their own. You can name them one at a time:
+
+```jpipe
+load "templates/quality.jd" as templates
+load "templates/security.jd" as templates
+```
+
+but that list goes stale the day someone adds a file. A `load` path can also be a
+**[glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29)**, and the compiler expands it
+into every file that matches:
+
+```jpipe
+// readiness.jd
+load "templates/*.jd" as templates
+
+justification readiness implements templates:quality {
+  sub-conclusion templates:quality:tested is "The code is tested"
+  // ... exactly as above
+}
+```
+
+`templates/*.jd` pulls in `quality.jd`, `security.jd`, and any sibling added later, all under the one
+`templates` alias. A glob with `as` shares a single namespace across everything it matches, just as
+if you had written the `load` lines by hand, so two matched files that declare a model with the same
+name still collide. Give glob-loaded models a folder of their own, as here: a pattern with no folder
+in front of it searches the current file's own directory, and `load "*.jd"` would match the very file
+that writes it.
+
 # From many files to one argument
 
 Splitting is what makes an argument **modular**: each file can be written, reviewed, and reused on its
