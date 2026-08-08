@@ -12,11 +12,9 @@ The award is granted to an organization that **stands as a model in the software
 For 15 years, [McSCert](www.mcscert.ca), part of the Faculty of Engineering at McMaster University, has been promoting collaboration and partnerships across various sectors, demonstrating a dedication to advancing standards and practices within the industry, amplifying impact and enhancing technology transfer. 
 
 
-<quote>"<i><b>McSCert is honored to be the 2024 recipient of the IEEE TCSE Synergy Award. The award recognizes the collective efforts of our team including substantial contributions from undergraduates and graduate students.</b></i>"</quote>
-{: .text-center }
-
--- McSCert director, Dr. Richard Paige 
-{: .text-right }
+> McSCert is honored to be the 2024 recipient of the IEEE TCSE Synergy Award. The award recognizes the collective efforts of our team including substantial contributions from undergraduates and graduate students.
+>
+> <cite>McSCert director, Dr. Richard Paige</cite>
 
 With an overarching goal to improve the practice of software engineering applied to critical systems involving software, [McSCert](www.mcscert.ca) works with various partners to research how to produce software that can be certified and how existing software may be certified. Past partners include Google, Mitacs, General Motors, Stellantis and Rogers. 
 
