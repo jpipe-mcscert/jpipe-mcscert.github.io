@@ -18,8 +18,8 @@ main:
 news:
   - title: Categories
     children:
-      - title: "Annoucements"
-        url: /categories/#annoucements
+      - title: "Publications"
+        url: /categories/#publications
       - title: "Awards"
         url: /categories/#awards
       - title: "Funding"
