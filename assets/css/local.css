@@ -34,9 +34,12 @@ section.page__content.e-content {
 }
 
 /* Give in-content images (diagrams, screenshots) a little breathing room so
-   they don't sit flush against the surrounding prose. */
+   they don't sit flush against the surrounding prose. Set only the block
+   margins: the `margin` shorthand would also zero the inline ones, which
+   outranks the theme's `.align-center { margin-inline: auto }` and silently
+   left-aligns every centred image. */
 .page__content.e-content img {
-    margin: 0.9em 0;
+    margin-block: 0.9em;
 }
 
 /* Notices match tables (rem, no compounding). !important overrides the theme's
