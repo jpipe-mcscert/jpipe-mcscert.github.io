@@ -3,8 +3,16 @@
    rouge tokenization is disabled in _config.yml so every block is a bare
    <pre><code class="language-x">, matching the jpipe blocks. */
 
-/* Justify body text, except tutorial/doc card summaries */
+/* Justify body text, except tutorial/doc card summaries.
+   `li` is needed too: a "tight" Markdown list renders as a bare
+   <li>text</li> with no inner <p>, so the `p` rule never reaches it and
+   those items stayed ragged-right next to justified paragraphs. Scoped to
+   .page__content so menus, breadcrumbs and the sidebar keep their own
+   alignment. */
 p {
+    text-align: justify;
+}
+.page__content li {
     text-align: justify;
 }
 p.p-summary {
@@ -88,12 +96,12 @@ div.highlighter-rouge, figure.highlight {
 }
 
 /* -------------------------------------------------------------------------
-   Publications page: body class `publications-list`. Slightly smaller,
-   justified text for the (dense) publication lists.
+   Publications page: body class `publications-list`. Slightly smaller text
+   for the (dense) publication lists (justification comes from the `li` rule
+   at the top of this file).
    ------------------------------------------------------------------------- */
 .publications-list .page__content li {
     font-size: 0.85em;
-    text-align: justify;
 }
 
 /* -------------------------------------------------------------------------
