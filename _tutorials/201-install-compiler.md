@@ -17,9 +17,9 @@ The **jPipe compiler** is the `jpipe` command-line tool: it parses `.jd` files, 
 exports diagrams. Installing it as a standalone CLI lets you **script and automate** jPipe tasks
 from a terminal, a build script, or a CI server.
 
-Installing with a **package manager** (Homebrew or APT, below) is the smoothest option: it pulls in
-the correct dependencies (Java and Graphviz) for you. The manual JAR route works too, but you
-install those prerequisites yourself.
+Installing with a **package manager** (Homebrew, APT or Scoop, below) is the smoothest option: it
+pulls in the correct dependencies (Java and Graphviz) for you. The manual JAR route works too, but
+you install those prerequisites yourself.
 
 Once the CLI is on your machine, we recommend switching the IDE to its **`cli`** execution mode, so
 the editor and your terminal always run the exact same compiler version (see
@@ -28,14 +28,16 @@ the editor and your terminal always run the exact same compiler version (see
 
 # 🍎 macOS (Homebrew)
 
-Tap the McSCert repository and install:
+We ship jPipe for macOS through [Homebrew](https://brew.sh), in the McSCert tap
+([`jpipe-mcscert/homebrew-mcscert`](https://github.com/jpipe-mcscert/homebrew-mcscert)). With
+Homebrew installed, tap that repository and install:
 
 ```
 $ brew tap jpipe-mcscert/mcscert
 $ brew install jpipe
 ```
 
-# 🐧 Linux & Windows (WSL): APT
+# 🐧 Linux (APT)
 
 We build packages for the Ubuntu releases in active support, following our
 [release-target policy](https://www.jpipe.org/jpipe-compiler/adr/0023-ubuntu-release-target-policy/):
@@ -58,12 +60,44 @@ $ sudo apt install jpipe
 - If you see *`Depends: openjdk-25-jre but it is not installable`*, your distribution doesn't ship
   Java 25 by default; add the OpenJDK 25 PPA to satisfy the requirement.
 
+# 🪟 Windows (Scoop)
+
+We ship jPipe for Windows through [Scoop](https://scoop.sh), in the McSCert bucket
+([`jpipe-mcscert/scoop-mcscert`](https://github.com/jpipe-mcscert/scoop-mcscert)). With Scoop
+installed, open a PowerShell prompt and run:
+
+```
+PS> scoop install git
+PS> scoop bucket add java
+PS> scoop bucket add mcscert https://github.com/jpipe-mcscert/scoop-mcscert
+PS> scoop install mcscert/jpipe
+```
+
+All four steps are required:
+
+- **`git`**: `scoop bucket add` clones the bucket repository, so Scoop refuses to add a bucket
+  without it.
+- **the `java` bucket**: jPipe depends on `java/temurin25-jre`, and Scoop resolves dependencies
+  only against buckets you have already added. It will *not* add a missing one for you, and the
+  install fails if `java` is absent. Graphviz comes from `main`, which Scoop adds by default, so it
+  needs no equivalent step.
+
+**Troubleshooting**
+
+- Windows packaging starts at **jPipe 2.3.0**. Asking for an older release
+  (`scoop install mcscert/jpipe@2.2.0`) fails on a download error: those versions publish no
+  Windows archive. Take them from the
+  [releases page](https://github.com/jpipe-mcscert/jpipe-compiler/releases) instead.
+- Running Windows Subsystem for Linux? The [APT route](#-linux-apt) above works unchanged inside
+  your WSL distribution, but the resulting `jpipe` is a Linux binary, visible to WSL only.
+
 # ☕️ Manual installation (JAR)
 
 Prefer not to use a package manager? Run jPipe as a JAR.
 
 **Prerequisites** (both on your `$PATH`):
-- Java 25 (LTS): [https://www.java.com/en/download/](https://www.java.com/en/download/)
+- Java 25 (LTS): [Eclipse Temurin 25](https://adoptium.net/temurin/releases/?version=25), the same
+  runtime our packages depend on
 - Graphviz: [https://www.graphviz.org/download/](https://www.graphviz.org/download/)
 
 ### From an official release
