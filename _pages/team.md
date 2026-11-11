@@ -2,6 +2,8 @@
 layout: splash
 title: The Team
 permalink: /team/
+classes:
+  - aligned-cards
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
@@ -40,17 +42,17 @@ core_team:
     url: "https://www.linkedin.com/in/harmanpreetssagar/"
     btn_label: "Read More"
     btn_class: "btn--primary btn--small"
-  # Pending: Grady and Jackson, waiting for their data. Uncomment once
-  # their full name, bio, 512x512 portrait (assets/images/people/<name>.jpg,
-  # replacing placeholder.svg) and optional url/button are known.
+  - image_path: /assets/images/people/jackson.jpg
+    title: "Jackson Beach"
+    excerpt: "<p class=\"text-justify\">Jackson is in his final year of Software Engineering (Co-op) at McMaster University. He is also performing undergraduate research, looking into how harness models can be operationalized for AI coding agents. He previously spent 12 months at General Dynamics as a Software Development and Test Intern, working with tactical communications systems.</p>"
+    url: "https://www.linkedin.com/in/jacksondbeach/"
+    btn_label: "Read More"
+    btn_class: "btn--primary btn--small"
+  # Pending: Grady, waiting for their data. Uncomment once their full name,
+  # bio, 512x512 portrait (assets/images/people/<name>.jpg, replacing
+  # placeholder.svg) and optional url/button are known.
   # - image_path: /assets/images/people/placeholder.svg
   #   title: "Grady"
-  #   excerpt: "<p class=\"text-justify\">Bio coming soon.</p>"
-  #   url: "https://..."
-  #   btn_label: "Read More"
-  #   btn_class: "btn--primary btn--small"
-  # - image_path: /assets/images/people/placeholder.svg
-  #   title: "Jackson"
   #   excerpt: "<p class=\"text-justify\">Bio coming soon.</p>"
   #   url: "https://..."
   #   btn_label: "Read More"

@@ -108,6 +108,40 @@ div.highlighter-rouge, figure.highlight {
 }
 
 /* -------------------------------------------------------------------------
+   Feature-row cards with bottom-aligned buttons: body class `aligned-cards`
+   (team and sponsors pages). The theme floats `.feature__item` cards, so each "Read More"
+   button sits wherever its excerpt ends. From the theme's 3-column
+   breakpoint up, lay each row out with flexbox instead: cards in a row
+   stretch to the same height, and the button paragraph (last child of the
+   card body) is pushed to the bottom with `margin-top: auto`. The theme's
+   widths and gutters (margin-inline-start) still apply to flex items.
+   Below the breakpoint cards stack in one column, so nothing to align.
+   ------------------------------------------------------------------------- */
+@media (min-width: 37.5em) {
+    .aligned-cards .feature__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .aligned-cards .feature__wrapper::after {
+        display: none;
+    }
+    .aligned-cards .feature__item,
+    .aligned-cards .feature__item .archive__item,
+    .aligned-cards .feature__item .archive__item-body {
+        display: flex;
+        flex-direction: column;
+    }
+    .aligned-cards .feature__item .archive__item,
+    .aligned-cards .feature__item .archive__item-body {
+        flex: 1;
+    }
+    .aligned-cards .feature__item .archive__item-body > p:last-child {
+        margin-top: auto;
+    }
+}
+
+/* -------------------------------------------------------------------------
    Copy button on code snippets (injected by assets/js/copy-code.js, which
    wraps each block `<pre>` in `.code-block-wrapper`). Hidden until hover on
    pointer devices; always shown where hover is unavailable (touch).

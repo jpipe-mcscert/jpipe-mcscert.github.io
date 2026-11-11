@@ -2,6 +2,8 @@
 layout: splash
 title: Sponsors
 permalink: /sponsors/
+classes:
+  - aligned-cards
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
