@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Portrait coming soon">
+  <rect width="512" height="512" fill="#e5e7eb"/>
+  <circle cx="256" cy="200" r="92" fill="#9ca3af"/>
+  <path d="M76 512c0-110 80-180 180-180s180 70 180 180z" fill="#9ca3af"/>
+</svg>
