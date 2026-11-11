@@ -32,7 +32,7 @@ core_team:
     btn_class: "btn--primary btn--small"
   - image_path: /assets/images/people/ahmed.jpg
     title: "Ahmed Maher"
-    excerpt: "<p class=\"text-justify\">Ahmed is an M.Eng. student in Computing and Software at McMaster University. He is working on utilizing jPipe to justify machine learning pipelines in support of trustworthy AI. His interests include artificial intelligence, machine learning, software engineering, and responsible AI. He previously completed his B.Sc. in Computer Science at Wilfrid Laurier University, where he worked on research projects involving agentic AI systems and machine learning applications..</p>"
+    excerpt: "<p class=\"text-justify\">Ahmed is an M.Eng. student in Computing and Software at McMaster University. He is working on utilizing jPipe to justify machine learning pipelines in support of trustworthy AI. His interests include artificial intelligence, machine learning, software engineering, and responsible AI. He previously completed his B.Sc. in Computer Science at Wilfrid Laurier University, where he worked on research projects involving agentic AI systems and machine learning applications.</p>"
     url: "https://www.linkedin.com/in/ahmedmaher47/"
     btn_label: "Read More"
     btn_class: "btn--primary btn--small"
