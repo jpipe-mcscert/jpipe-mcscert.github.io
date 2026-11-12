@@ -98,6 +98,10 @@ tutorials:
         url: /tutorials/cicd/
       - title: "Pull Request Integration"
         url: /tutorials/pull-requests/
+      - title: "What a Change Reaches"
+        url: /tutorials/impact/
+      - title: "Run a Composed Argument"
+        url: /tutorials/composed-runs/
 
   # The IDE (advanced usage): 4xx tutorials.
   - title: The IDE

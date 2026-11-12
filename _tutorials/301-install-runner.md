@@ -19,7 +19,7 @@ diagram **coloured by the result**. Installing it lets you **execute and verify*
 a terminal, a build script, or a CI server.
 
 Installing with a **package manager** (Homebrew or APT, below) is the smoothest option: it pulls in
-the correct dependencies (Python and Graphviz) for you. The `pip` route works too, but you provide
+the correct dependencies (Python, and Graphviz for the diagrams) for you. The `pip` route works too, but you provide
 those prerequisites yourself. On **Windows** the runner has no native package yet, so `pip` is the
 route to take.
 
@@ -27,6 +27,12 @@ You only need the runner once you want your justification *checked*, not just dr
 authoring models, the [compiler](/tutorials/install/compiler/) and the
 [IDE](/tutorials/install/ide/) are enough.
 {: .notice--info}
+
+**Coming from version 3?** The runner was rewritten for version 4: step libraries are written
+differently and the command line changed, so a v3 library does not run on v4 unchanged. The
+[migration guide](https://github.com/jpipe-mcscert/jpipe-runner/blob/main/docs/migration-v3-v4.md)
+takes a v3 library to v4, change by change. The tutorials on this site all use version 4.
+{: .notice--warning}
 
 # 🍎 macOS (Homebrew)
 
@@ -60,8 +66,8 @@ $ sudo apt install jpipe-runner
 
 # 🪟 Windows (pip)
 
-Unlike the compiler, the runner has **no Windows package** yet: install it from PyPI. Its two
-prerequisites come from [Scoop](https://scoop.sh), the same tool that installs the
+Unlike the compiler, the runner has **no Windows package** yet: install it from PyPI. Python, and
+Graphviz for the diagrams, come from [Scoop](https://scoop.sh), the same tool that installs the
 [compiler](/tutorials/install/compiler/#-windows-scoop):
 
 ```
@@ -78,13 +84,19 @@ PowerShell prompt once `pip` finishes. Running Windows Subsystem for Linux inste
 
 Prefer not to use a package manager? The runner is a Python package, so install it with `pip`.
 
-**Prerequisites** (both on your `$PATH`):
+**Prerequisites** (on your `$PATH`):
 - Python 3.11 or newer: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-- Graphviz: [https://www.graphviz.org/download/](https://www.graphviz.org/download/)
+- Graphviz, to draw diagrams (a run without `--diagram` or `--dataflow` does not need it):
+  [https://www.graphviz.org/download/](https://www.graphviz.org/download/)
 
 ### From PyPI
 
+The checks you will write are Python code, and they run on the same Python as the runner. A virtual
+environment keeps the runner next to whatever packages your checks import:
+
 ```
+$ python3 -m venv .venv
+$ . .venv/bin/activate
 $ pip install jpipe-runner
 ```
 
@@ -98,30 +110,33 @@ jpipe-runner $ pip install .
 
 # 🩺 Verify your installation
 
-`jpipe-runner -h` prints its banner (with the installed version) and the usage summary:
+`jpipe-runner --version` prints the installed version:
+
+```
+$ jpipe-runner --version
+jpipe-runner 4.0.0
+```
+
+Any `4.x` version follows these tutorials. `jpipe-runner -h` lists every option, and ends with the
+exit codes a CI pipeline can act on:
 
 ```
 $ jpipe-runner -h
-usage: jpipe-runner [-h] [--variable VARIABLE] [--library LIBRARY]
-                    [--diagram PATTERN]
-                    [--format {dot,gif,jpeg,jpg,pdf,png,svg}]
-                    [--output-path PATH] [--dry-run] [--verbose]
-                    [--config-file CONFIG_FILE] [--python-path PYTHON_PATH]
-                    jd_file
+usage: jpipe-runner [-h] -l PATH [-p DIR] [--strict] [--dry-run] [--json]
+                    [--report PATH] [--diagram PATH] [--dataflow PATH]
+                    [--colour {auto,always,never}] [-v | -q] [--version]
+                    JUSTIFICATION
 
-McMaster University - McSCert (c) 2023-... - Version 3.5.3
-    _ ____  _               ____
-   (_)  _ \(_)_ __   ___   |  _ \ _   _ _ __  _ __   ___ _ __
-   | | |_) | | '_ \ / _ \  | |_) | | | | '_ \| '_ \ / _ \ '__|
-   | |  __/| | |_) |  __/  |  _ <| |_| | | | | | | |  __/ |
-  _/ |_|   |_| .__/ \___|  |_| \_\\__,_|_| |_|_| |_|\___|_|
- |__/        |_|
+Run a jPipe justification against the Python step libraries that implement its
+evidence and its reasoning, and report its verdict.
+...
 ```
 
 # Next steps
 
 With the runner in place, the **[Runner tutorial](/tutorials/runner/)** walks you through binding a
-justification's evidence to real Python checks and reading the coloured result; from there,
+justification's evidence to real Python checks and reading the result; from there,
 **[CI/CD integration](/tutorials/cicd/)** runs that check on every push. Since the runner executes
 the compiler's JSON output rather than the `.jd` source, you will also want the
-**[compiler](/tutorials/install/compiler/)** on hand to produce it.
+**[compiler](/tutorials/install/compiler/)** on hand to produce it, and to write the skeleton of your
+checks.

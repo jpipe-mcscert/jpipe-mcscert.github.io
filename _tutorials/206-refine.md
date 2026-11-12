@@ -110,7 +110,8 @@ Its sibling operator, **[`assemble`](/tutorials/assemble/)**, grows an argument 
 depth, joining independent justifications side by side. When a branch recurs across arguments,
 **[templates](/tutorials/templates/)** capture its shape for reuse. And once the argument says what
 you mean, **[make it executable](/tutorials/runner/)** so every piece of evidence is backed by a real
-check.
+check; the checks written for the draft and for the detail
+**[run together on the refined argument](/tutorials/composed-runs/)**, unchanged.
 
 For larger compositions in practice, see the
 [empowrd example](https://github.com/jpipe-mcscert/jpipe-examples/tree/main/empowrd).

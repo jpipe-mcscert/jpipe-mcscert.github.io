@@ -35,7 +35,7 @@ anything, here is the map of the tools you will meet.
 |------|--------------|------------------|
 | **jPipe Compiler** | The `jpipe` command-line tool that parses, validates, and renders models. Everything else in jPipe runs on top of it. | **Start here**: one package-manager command. |
 | **jPipe IDE** | A Visual Studio Code extension to author `.jd` files, with syntax highlighting, a live diagram preview, and one-click export. | Install it second. It finds the compiler on its own. |
-| **jPipe Runner** | The `jpipe-runner` tool that turns a justification into an *executable* check against real data. | When you want the argument verified automatically, typically in CI/CD. |
+| **jPipe Runner** | The `jpipe-runner` tool that turns a justification into an *executable* check against real data, and runs it in CI/CD with the *jPipe CI* GitHub Action. | When you want the argument verified automatically, typically in CI/CD. |
 
 # Where to start
 
@@ -60,4 +60,6 @@ extension can download and manage a compiler itself: see
   [splitting models](/tutorials/modularity/), and the composition operators
   ([assemble](/tutorials/assemble/), [refine](/tutorials/refine/)).
 - The **[runner](/tutorials/install/runner/)** (Homebrew, APT, or pip) makes justifications
-  executable, all the way to [CI/CD integration](/tutorials/cicd/) under **Execution**.
+  executable, all the way to [CI/CD integration](/tutorials/cicd/),
+  [impact analysis](/tutorials/impact/) and [composed arguments](/tutorials/composed-runs/) under
+  **Execution**.

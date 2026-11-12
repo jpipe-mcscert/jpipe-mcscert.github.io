@@ -55,9 +55,9 @@ justification readiness {
 }
 ```
 
-Notice the ids (`ready`, `gates`, `tested`, `testing`, …): unlike the terse `c`/`s`/`e1` of
-[jPipe 101](/tutorials/jpipe101/), meaningful ids make the `supports` edges read almost like
-sentences and keep a growing model navigable.
+Notice the ids (`ready`, `gates`, `tested`, `testing`, …): as in [jPipe 101](/tutorials/jpipe101/),
+each is a short, meaningful word, so the `supports` edges read almost like sentences and a growing
+model stays navigable.
 
 Open the [diagram preview](/tutorials/jpipe101/#step-2-preview-the-diagram) in the IDE and the
 layered structure is clear: the two sub-conclusions each carry their own sub-argument up to the top

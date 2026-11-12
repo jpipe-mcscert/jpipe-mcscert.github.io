@@ -99,7 +99,8 @@ The other operator, **[`refine`](/tutorials/refine/)**, composes in the opposite
 a single node into a deeper argument rather than joining arguments side by side. When several bricks
 share a shape, **[templates](/tutorials/templates/)** let you fix that shape once and reuse it. And
 once the argument reads the way you want, **[make it executable](/tutorials/runner/)** so every piece
-of evidence is backed by a real check.
+of evidence is backed by a real check; the checks written for each brick
+**[run together on the assembled argument](/tutorials/composed-runs/)**.
 
 For larger compositions in practice, see the
 [empowrd example](https://github.com/jpipe-mcscert/jpipe-examples/tree/main/empowrd).
